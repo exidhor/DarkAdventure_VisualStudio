@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{77DEA69C-0171-4399-8BD0-1A0B320AE8C0}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Engine</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Users\Jipay\Documents\Visual Studio 2015\Projects\DarkAdventure\Engine;C:\Users\Jipay\Documents\Visual Studio 2015\Projects\DarkAdventure\Engine\mvs_file;C:\Users\Jipay\Documents\Visual Studio 2015\Projects\DarkAdventure\Engine\include;$(IncludePath)</IncludePath>
+    <SourcePath>C:\Users\Jipay\Documents\Visual Studio 2015\Projects\DarkAdventure\Engine;C:\Users\Jipay\Documents\Visual Studio 2015\Projects\DarkAdventure\Engine\mvs_file;C:\Users\Jipay\Documents\Visual Studio 2015\Projects\DarkAdventure\Engine\source;$(SourcePath)</SourcePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;ENGINE_EXPORTS;STL_EXPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>A:\DEV_RES\SFML-2.4.0-MVS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>A:\DEV_RES\SFML-2.4.0-MVS\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;ENGINE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;ENGINE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;ENGINE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="mvs_file\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Animations\Animation\Animation.hpp" />
+    <ClInclude Include="include\Animations\AnimationComponent.hpp" />
+    <ClInclude Include="include\Animations\AnimationsEngine.hpp" />
+    <ClInclude Include="include\Animations\Animation\AnimationID.hpp" />
+    <ClInclude Include="include\Animations\Animation\AnimationKey.hpp" />
+    <ClInclude Include="include\Animations\Animation\AnimationManager.hpp" />
+    <ClInclude Include="include\Animations\Sequence\Sequence.hpp" />
+    <ClInclude Include="include\Animations\Sequence\SequenceID.hpp" />
+    <ClInclude Include="include\Animations\Sequence\SequenceKey.hpp" />
+    <ClInclude Include="include\Animations\Sequence\SequenceManager.hpp" />
+    <ClInclude Include="include\Animations\Tile\Tile.hpp" />
+    <ClInclude Include="include\Animations\Tile\TileGroup.hpp" />
+    <ClInclude Include="include\Animations\Tile\TileGroupID.hpp" />
+    <ClInclude Include="include\Animations\Tile\TileID.hpp" />
+    <ClInclude Include="include\Animations\Tile\TileKey.hpp" />
+    <ClInclude Include="include\Animations\Tile\TileManager.hpp" />
+    <ClInclude Include="include\Animations\Time\Time.hpp" />
+    <ClInclude Include="include\Animations\Time\TimeID.hpp" />
+    <ClInclude Include="include\Animations\Time\TimeKey.hpp" />
+    <ClInclude Include="include\Animations\Time\TimeManager.hpp" />
+    <ClInclude Include="include\Animations\Time\Timer.hpp" />
+    <ClInclude Include="include\Config.hpp" />
+    <ClInclude Include="include\Graphics\Layer\Layer.hpp" />
+    <ClInclude Include="include\Graphics\Layer\DisplayManager.hpp" />
+    <ClInclude Include="include\Graphics\Layer\LayerFactory.hpp" />
+    <ClInclude Include="include\Graphics\Render\Drawer.hpp" />
+    <ClInclude Include="include\Graphics\Layer\LayerID.hpp" />
+    <ClInclude Include="include\Graphics\Layer\LayerKey.hpp" />
+    <ClInclude Include="include\Graphics\Layer\SeparateVertexArray.hpp" />
+    <ClInclude Include="include\Graphics\GraphicsEngine.hpp" />
+    <ClInclude Include="include\Graphics\Render\DisplayPackage.hpp" />
+    <ClInclude Include="include\Graphics\Render\RenderComponent.hpp" />
+    <ClInclude Include="include\Graphics\Render\VertexArray.hpp" />
+    <ClInclude Include="include\Graphics\Texture\TextureID.hpp" />
+    <ClInclude Include="include\Graphics\Texture\TextureKey.hpp" />
+    <ClInclude Include="include\Graphics\Texture\TextureManager.hpp" />
+    <ClInclude Include="include\Utils\Container\IDContainer.hpp" />
+    <ClInclude Include="include\Utils\Container\Iterator.hpp" />
+    <ClInclude Include="include\Utils\Container\MappedArray.hpp" />
+    <ClInclude Include="include\Utils\Container\Vec2.hpp" />
+    <ClInclude Include="include\Utils\Math\AlignedRect.hpp" />
+    <ClInclude Include="include\Utils\Math\Math.hpp" />
+    <ClInclude Include="include\Utils\Movement\Movement.hpp" />
+    <ClInclude Include="include\Utils\Transform\Rotation.hpp" />
+    <ClInclude Include="include\Utils\Transform\Scaling.hpp" />
+    <ClInclude Include="include\Utils\Transform\Transformable.hpp" />
+    <ClInclude Include="include\Utils\Transform\TransformArguments.hpp" />
+    <ClInclude Include="include\Utils\Transform\Translation.hpp" />
+    <ClInclude Include="mvs_file\stdafx.h" />
+    <ClInclude Include="mvs_file\targetver.h" />
+    <ClInclude Include="include\Utils\Identifier\KeyString.hpp" />
+    <ClInclude Include="include\Utils\Identifier\UintID.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="source\Animations\AnimationComponent.cpp" />
+    <ClCompile Include="source\Animations\Animation\Animaiton.cpp" />
+    <ClCompile Include="source\Animations\Animation\AnimationManager.cpp" />
+    <ClCompile Include="source\Animations\Sequence\Sequence.cpp" />
+    <ClCompile Include="source\Animations\Sequence\SequenceManager.cpp" />
+    <ClCompile Include="source\Animations\Tile\Tile.cpp" />
+    <ClCompile Include="source\Animations\Tile\TileGroup.cpp" />
+    <ClCompile Include="source\Animations\Tile\TileManager.cpp" />
+    <ClCompile Include="source\Animations\Time\Time.cpp" />
+    <ClCompile Include="source\Animations\Time\TimeManager.cpp" />
+    <ClCompile Include="source\Graphics\Layer\Layer.cpp" />
+    <ClCompile Include="source\Graphics\Layer\DisplayManager.cpp" />
+    <ClCompile Include="source\Graphics\Layer\LayerFactory.cpp" />
+    <ClCompile Include="source\Graphics\Render\Drawer.cpp" />
+    <ClCompile Include="source\Graphics\Layer\SeparateVertexArray.cpp" />
+    <ClCompile Include="source\Graphics\GraphicsEngine.cpp" />
+    <ClCompile Include="source\Graphics\Render\DisplayPackage.cpp" />
+    <ClCompile Include="source\Graphics\Render\RenderComponent.cpp" />
+    <ClCompile Include="source\Graphics\Render\VertexArray.cpp" />
+    <ClCompile Include="source\Graphics\Texture\TextureManager.cpp" />
+    <ClCompile Include="mvs_file\stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\Utils\Container\Vec2.cpp" />
+    <ClCompile Include="source\Utils\Transform\Rotation.cpp" />
+    <ClCompile Include="source\Utils\Transform\Scaling.cpp" />
+    <ClCompile Include="source\Utils\Transform\Transformable.cpp" />
+    <ClCompile Include="source\Utils\Transform\TransformArguments.cpp" />
+    <ClCompile Include="source\Utils\Transform\Translation.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\Utils\Container\Iterator.inl" />
+    <None Include="include\Utils\Container\MappedArray.inl" />
+    <None Include="include\Utils\Container\IDContainer.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
