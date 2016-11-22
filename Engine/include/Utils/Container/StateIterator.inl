@@ -1,9 +1,9 @@
 template <typename Object>
 StateIterator<Object>::StateIterator()
 	: Iterator<Object>(),
+	m_numberOfIterations(0),
 	m_repeat(false),
-	m_reverseOrder(false),
-	m_numberOfIterations(0)
+	m_reverseOrder(false)
 {
 	// nothing
 }
@@ -11,9 +11,9 @@ StateIterator<Object>::StateIterator()
 template <typename Object>
 StateIterator<Object>::StateIterator(std::vector<Object> const& dataArray)
 	: Iterator<Object>(dataArray),
+	m_numberOfIterations(0),
 	m_repeat(false),
-	m_reverseOrder(false),
-	m_numberOfIterations(0)
+	m_reverseOrder(false)
 {
 	// nothing
 }
@@ -21,11 +21,23 @@ StateIterator<Object>::StateIterator(std::vector<Object> const& dataArray)
 template <typename Object>
 StateIterator<Object>::StateIterator(Iterator<Object> const& other)
 	: Iterator<Object>(other),
+	m_numberOfIterations(0),
 	m_repeat(false),
-	m_reverseOrder(false),
-	m_numberOfIterations(0)
+	m_reverseOrder(false)
 {
 	// nothing
+}
+
+template <typename Object>
+StateIterator<Object> & StateIterator<Object>::operator=(const StateIterator<Object>& other)
+{
+	Iterator<Object>::operator=(other);
+
+	m_numberOfIterations = other.m_numberOfIterations;
+	m_repeat = other.m_repeat;
+	m_reverseOrder = other.m_reverseOrder;
+
+	return *this;
 }
 
 template <typename Object>
@@ -86,7 +98,7 @@ Object const& StateIterator<Object>::next()
 		m_numberOfIterations++;
 	}
 
-	return Iterator<Object>::m_array[Iterator<Object>::m_currentIndex];
+	return (*Iterator<Object>::m_array)[Iterator<Object>::m_currentIndex];
 }
 
 template <typename Object>

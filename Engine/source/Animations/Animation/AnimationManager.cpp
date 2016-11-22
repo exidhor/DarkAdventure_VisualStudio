@@ -7,11 +7,11 @@ AnimationManager::AnimationManager()
 	// nothing
 }
 
-AnimationID AnimationManager::createAnimation(TileGroupID const& tileGroupID,
-										 TimeID const& timeID,
+AnimationID AnimationManager::createAnimation(std::vector<TileID> const& tileID,
+										 Time const& time,
 										 std::string const& key)
 {
-	m_idContainer.push_back(Animation(tileGroupID, timeID), AnimationKey(key));
+	m_idContainer.push_back(Animation(tileID, time), AnimationKey(key));
 
 	return AnimationID(m_idContainer.size() - 1);
 }

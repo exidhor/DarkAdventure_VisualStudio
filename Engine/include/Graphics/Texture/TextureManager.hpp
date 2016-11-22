@@ -44,14 +44,14 @@ namespace dae
 
             const sf::Texture* getTexture(TextureID textureID) const;
 
-            TextureID getTextureID(std::string const key) const;
+            TextureID getTextureID(TextureKey const& key) const;
             
         protected :
         
         private :
             void loadVoidTexture();
 
-            utils::IDContainer<sf::Texture, TextureKey> m_textures;
+            utils::IDContainer<sf::Texture, TextureKey, utils::Hash_string_key> m_textures;
         };
         
     }

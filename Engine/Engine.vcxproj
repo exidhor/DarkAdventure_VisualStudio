@@ -91,6 +91,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;ENGINE_EXPORTS;STL_EXPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>A:\DEV_RES\SFML-2.4.0-MVS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4251;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -201,6 +202,7 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="source\Animations\AnimationComponent.cpp" />
+    <ClCompile Include="source\Animations\Animation\Time.cpp" />
     <ClCompile Include="source\Animations\Machine\AnimationMachine.cpp" />
     <ClCompile Include="source\Animations\AnimationPlayer.cpp" />
     <ClCompile Include="source\Animations\Animation\Animation.cpp" />

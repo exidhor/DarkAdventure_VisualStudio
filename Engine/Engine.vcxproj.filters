@@ -236,6 +236,9 @@
     <ClCompile Include="source\Animations\Machine\AnimationState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\Animations\Animation\Time.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="mvs_file\ReadMe.txt" />

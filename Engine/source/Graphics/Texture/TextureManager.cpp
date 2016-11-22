@@ -15,7 +15,7 @@ TextureManager::~TextureManager()
 TextureID TextureManager::loadTexture(std::string const& path,
 									  std::string const& key)
 {
-	m_textures.push_back(sf::Texture(), key);
+	m_textures.push_back(sf::Texture(), TextureKey(key));
 
 	unsigned index = m_textures.size() - 1;
 
@@ -34,7 +34,7 @@ TextureID TextureManager::loadTexture(std::string const& path,
                                       std::string const& key,
                                       sf::IntRect const& rect)
 {
-    m_textures.push_back(sf::Texture(), key);
+    m_textures.push_back(sf::Texture(), TextureKey(key));
 
     unsigned index = m_textures.size() - 1;
 
@@ -58,12 +58,12 @@ const sf::Texture* TextureManager::getTexture(TextureID textureID) const
     return &m_textures[textureID.getValue()];
 }
 
-TextureID TextureManager::getTextureID(std::string const key) const
+TextureID TextureManager::getTextureID(TextureKey const& key) const
 {
     return TextureID(m_textures.getIndex(key));
 }
 
 void TextureManager::loadVoidTexture()
 {
-    m_textures.push_back(sf::Texture(), VOID_TEXTURE_KEY);
+    m_textures.push_back(sf::Texture(), TextureKey(VOID_TEXTURE_KEY));
 }

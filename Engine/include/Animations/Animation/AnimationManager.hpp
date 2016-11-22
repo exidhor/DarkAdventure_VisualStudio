@@ -16,7 +16,7 @@ namespace dae
 		public:
 			AnimationManager();
 
-			AnimationID createAnimation(TileGroupID const& tileGroupID,
+			AnimationID createAnimation(std::vector<TileID> const& tileID,
 								   Time const& time,
 								   std::string const& key);
 

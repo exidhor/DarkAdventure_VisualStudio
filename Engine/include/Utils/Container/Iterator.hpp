@@ -14,7 +14,7 @@ namespace dae
 			Iterator(std::vector<Object> const& dataArray);
 			Iterator(Iterator const& other);
 
-			Iterator<Object> operator=(const Iterator<Object>& other) = default;
+			Iterator<Object> & operator=(const Iterator<Object>& other);
 
 			void reset();
 			void setToTheEnd();
@@ -31,7 +31,7 @@ namespace dae
 		protected:
 			int getLastIndex() const; // the return type is int in case of the array size is 0
 
-			const std::vector<Object> & m_array;
+			std::vector<Object> const* m_array;
 			unsigned m_currentIndex;
 		};
 

@@ -14,7 +14,7 @@ namespace dae
 			StateIterator(std::vector<Object> const& dataArray);
 			StateIterator(Iterator<Object> const& other);
 
-			StateIterator<Object> operator=(const StateIterator<Object>& other) = default;
+			StateIterator<Object> & operator=(const StateIterator<Object>& other);
 
 			void setToStart();
 

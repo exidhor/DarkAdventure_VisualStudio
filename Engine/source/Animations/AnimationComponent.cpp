@@ -1,6 +1,7 @@
 #include "Animations/AnimationComponent.hpp"
 
 using namespace dae::animations;
+using namespace dae;
 
 const AnimationManager* AnimationComponent::s_animationManager = nullptr;
 const TileManager*      AnimationComponent::s_tileManager      = nullptr;
