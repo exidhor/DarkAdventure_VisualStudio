@@ -3,6 +3,7 @@
 
 using namespace dae::graphics;
 using namespace dae::utils;
+using namespace dae;
 
 RenderComponent::RenderComponent(std::vector<Vec2f> const& vertexPosition, 
 								 sf::PrimitiveType primitiveType)
@@ -14,6 +15,12 @@ RenderComponent::RenderComponent(std::vector<Vec2f> const& vertexPosition,
 RenderComponent::~RenderComponent()
 {
     // nothing
+}
+
+void RenderComponent::setTile(animations::Tile const tile)
+{
+	m_displayPackage.setTexture(tile.getTextureID());
+	m_vertexArray.setTexturePoint(tile.getRect());
 }
 
 void RenderComponent::setColor(sf::Color const& color)

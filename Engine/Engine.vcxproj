@@ -150,27 +150,20 @@
     <Text Include="mvs_file\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Animations\Machine\AnimationMachine.hpp" />
+    <ClInclude Include="include\Animations\AnimationPlayer.hpp" />
     <ClInclude Include="include\Animations\Animation\Animation.hpp" />
     <ClInclude Include="include\Animations\AnimationComponent.hpp" />
     <ClInclude Include="include\Animations\AnimationsEngine.hpp" />
     <ClInclude Include="include\Animations\Animation\AnimationID.hpp" />
     <ClInclude Include="include\Animations\Animation\AnimationKey.hpp" />
     <ClInclude Include="include\Animations\Animation\AnimationManager.hpp" />
-    <ClInclude Include="include\Animations\Sequence\Sequence.hpp" />
-    <ClInclude Include="include\Animations\Sequence\SequenceID.hpp" />
-    <ClInclude Include="include\Animations\Sequence\SequenceKey.hpp" />
-    <ClInclude Include="include\Animations\Sequence\SequenceManager.hpp" />
+    <ClInclude Include="include\Animations\Machine\AnimationState.hpp" />
     <ClInclude Include="include\Animations\Tile\Tile.hpp" />
-    <ClInclude Include="include\Animations\Tile\TileGroup.hpp" />
-    <ClInclude Include="include\Animations\Tile\TileGroupID.hpp" />
     <ClInclude Include="include\Animations\Tile\TileID.hpp" />
     <ClInclude Include="include\Animations\Tile\TileKey.hpp" />
     <ClInclude Include="include\Animations\Tile\TileManager.hpp" />
-    <ClInclude Include="include\Animations\Time\Time.hpp" />
-    <ClInclude Include="include\Animations\Time\TimeID.hpp" />
-    <ClInclude Include="include\Animations\Time\TimeKey.hpp" />
-    <ClInclude Include="include\Animations\Time\TimeManager.hpp" />
-    <ClInclude Include="include\Animations\Time\Timer.hpp" />
+    <ClInclude Include="include\Animations\Animation\Time.hpp" />
     <ClInclude Include="include\Config.hpp" />
     <ClInclude Include="include\Graphics\Layer\Layer.hpp" />
     <ClInclude Include="include\Graphics\Layer\DisplayManager.hpp" />
@@ -189,6 +182,7 @@
     <ClInclude Include="include\Utils\Container\IDContainer.hpp" />
     <ClInclude Include="include\Utils\Container\Iterator.hpp" />
     <ClInclude Include="include\Utils\Container\MappedArray.hpp" />
+    <ClInclude Include="include\Utils\Container\StateIterator.hpp" />
     <ClInclude Include="include\Utils\Container\Vec2.hpp" />
     <ClInclude Include="include\Utils\Math\AlignedRect.hpp" />
     <ClInclude Include="include\Utils\Math\Math.hpp" />
@@ -207,15 +201,13 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="source\Animations\AnimationComponent.cpp" />
-    <ClCompile Include="source\Animations\Animation\Animaiton.cpp" />
+    <ClCompile Include="source\Animations\Machine\AnimationMachine.cpp" />
+    <ClCompile Include="source\Animations\AnimationPlayer.cpp" />
+    <ClCompile Include="source\Animations\Animation\Animation.cpp" />
     <ClCompile Include="source\Animations\Animation\AnimationManager.cpp" />
-    <ClCompile Include="source\Animations\Sequence\Sequence.cpp" />
-    <ClCompile Include="source\Animations\Sequence\SequenceManager.cpp" />
+    <ClCompile Include="source\Animations\Machine\AnimationState.cpp" />
     <ClCompile Include="source\Animations\Tile\Tile.cpp" />
-    <ClCompile Include="source\Animations\Tile\TileGroup.cpp" />
     <ClCompile Include="source\Animations\Tile\TileManager.cpp" />
-    <ClCompile Include="source\Animations\Time\Time.cpp" />
-    <ClCompile Include="source\Animations\Time\TimeManager.cpp" />
     <ClCompile Include="source\Graphics\Layer\Layer.cpp" />
     <ClCompile Include="source\Graphics\Layer\DisplayManager.cpp" />
     <ClCompile Include="source\Graphics\Layer\LayerFactory.cpp" />
@@ -243,6 +235,7 @@
     <None Include="include\Utils\Container\Iterator.inl" />
     <None Include="include\Utils\Container\MappedArray.inl" />
     <None Include="include\Utils\Container\IDContainer.inl" />
+    <None Include="include\Utils\Container\StateIterator.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

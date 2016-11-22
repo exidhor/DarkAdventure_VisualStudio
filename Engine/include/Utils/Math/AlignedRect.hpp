@@ -39,6 +39,16 @@ namespace dae
 			 {
 				 return Vec2f(left, top);
 			 }
+
+			 float getRight() const
+			 {
+				 return left + width;
+			 }
+
+			 float getBottom() const
+			 {
+				 return top + height;
+			 }
 		 };
 	}
 }

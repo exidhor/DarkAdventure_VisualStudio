@@ -10,6 +10,7 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "Utils/Container/Vec2.hpp"
+#include "Animations/Tile/Tile.hpp"
 
 namespace dae
 {
@@ -76,6 +77,8 @@ namespace dae
             void clear();
 
             void add(VertexArray const& vertexArray);
+
+			void setTexturePoint(utils::AlignedRect const& rect);
 
             void setColor(sf::Color const& color);
 

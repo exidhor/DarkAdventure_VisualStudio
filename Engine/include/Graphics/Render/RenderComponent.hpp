@@ -8,6 +8,12 @@
 #include "Graphics/Render/DisplayPackage.hpp"
 #include "Graphics/Render/VertexArray.hpp"
 #include "Graphics/Layer/LayerKey.hpp"
+#include "Animations/Tile/Tile.hpp"
+
+namespace dae {namespace animations {
+	class Tile;
+}
+}
 
 namespace dae
 {
@@ -36,6 +42,8 @@ namespace dae
              * \brief
              */
             virtual ~RenderComponent();
+
+			void setTile(animations::Tile const tile);
 
             void setColor(sf::Color const& color);
 

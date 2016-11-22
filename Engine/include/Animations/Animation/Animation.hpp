@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Config.hpp"
-#include "Animations/Tile/TileGroupID.hpp"
-#include "Animations/Time/TimeID.hpp"
+#include "Animations/Animation/Time.hpp"
+#include "Animations/Tile/TileID.hpp"
 
 namespace dae
 {
@@ -14,15 +14,17 @@ namespace dae
 		public:
 			Animation();
 
-			Animation(TileGroupID const tileGroupID, TimeID const& timeID);
+			Animation(std::vector<TileID> const& tileID,
+					  Time timeID);
 
-			TileGroupID const& getTileGroupID() const;
+			Time const& getTime() const;
 
-			TimeID const& getTimeID() const;
+			utils::Iterator<TileID> getTileIterator() const;
+			utils::Iterator<unsigned> getTimeIterator() const;
 
 		private:
-			TileGroupID m_tileGroupID;
-			TimeID m_timeID;
+			std::vector<TileID> m_tileID;
+			Time m_time;
 		};
 
 	}

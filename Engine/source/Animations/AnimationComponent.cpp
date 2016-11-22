@@ -2,147 +2,63 @@
 
 using namespace dae::animations;
 
-const SequenceManager*  AnimationComponent::s_sequenceManager  = nullptr;
 const AnimationManager* AnimationComponent::s_animationManager = nullptr;
-const TimeManager*      AnimationComponent::s_timeManager      = nullptr;
 const TileManager*      AnimationComponent::s_tileManager      = nullptr;
 
+void AnimationComponent::setManagersPtr(AnimationManager* animationManager,
+										TileManager* tileManager)
+{
+	s_animationManager = animationManager;
+	s_tileManager = tileManager;
+}
+
 AnimationComponent::AnimationComponent()
-	: m_isLooping(false),
-	m_readInReverseOrder(false),
-	m_theLastTileIsTheFirst(false),
-	m_noSequenceIsSet(true)
 {
 	// nothing
 }
 
 void AnimationComponent::reset()
 {
-	m_isLooping = false;
-	m_readInReverseOrder = false;
-	m_theLastTileIsTheFirst = false;
-
-	m_noSequenceIsSet = true;
+	m_player.reset();
+	m_machine.reset();
 }
 
-void AnimationComponent::setSequence(SequenceID const& sequenceID)
+void AnimationComponent::setAnimationMachine(AnimationMachine const& animationMachine)
 {
-	m_noSequenceIsSet = false;
+	m_machine = animationMachine;
 
-	m_currentSequenceID = sequenceID;
-
-	// construction of the iterators
-	setAnimationIterator(m_currentSequenceID);
-	
-	AnimationID animationID = m_currentAnimationIterated.current();
-	TileGroupID tileGroupID = s_animationManager->getAnimation(animationID).getTileGroupID();
-	TimeID timeID           = s_animationManager->getAnimation(animationID).getTimeID();
-
-	setTileIterator(tileGroupID);
-	setTimeIterator(timeID);
+	ActualizePlayerWithState();
 }
 
-void AnimationComponent::update(graphics::RenderComponent & renderComponent, unsigned time)
+void AnimationComponent::update(graphics::RenderComponent & renderComponent, 
+								unsigned time)
 {
-	updateTime(time);
-}
+	bool needToUpdate = true;
 
-void AnimationComponent::setLoop(bool isLooping)
-{
-	
-}
+	while(needToUpdate)
+	{
+		needToUpdate = m_player.update(time);
 
-void AnimationComponent::setReverseOrder(bool readInReverseOrder)
-{
-	
-}
+		if (needToUpdate)
+		{
+			m_machine.next();
+			ActualizePlayerWithState();
+		}
+	}
 
-void AnimationComponent::setFinishWithTheStart(bool theLastTileIsTheFirst)
-{
-	
-}
-
-SequenceID AnimationComponent::getCurrentSequenceID() const
-{
-	
+	renderComponent.setTile(s_tileManager->getTile(m_player.getCurrentTile()));
 }
 
 AnimationID AnimationComponent::getCurrentAnimationID() const
 {
-	
+	return m_player.getCurrentAnimation();
 }
 
-bool AnimationComponent::isLooping() const
+void AnimationComponent::ActualizePlayerWithState()
 {
-	
-}
+	AnimationState const& state = m_machine.getCurrentState();
 
-bool AnimationComponent::isReadingInReverseOrder() const
-{
-	
-}
-
-bool AnimationComponent::isTheLastTileIsTheFirst() const
-{
-	
-}
-
-void AnimationComponent::setManagersPtr(SequenceManager* sequenceManager,
-										AnimationManager* animationManager,
-										TimeManager* timeManager,
-										TileManager* tileManager)
-{
-	s_sequenceManager = sequenceManager;
-	s_animationManager = animationManager;
-	s_timeManager = timeManager;
-	s_tileManager = tileManager;
-}
-
-void AnimationComponent::updateTime(graphics::RenderComponent & renderComponent, 
-									unsigned time)
-{
-	m_currentTime += time;
-
-	unsigned indexToProgress = 0;
-
-	while (m_currentTime >= m_currentTimeIterated.current())
-	{
-		m_currentTime -= m_currentTimeIterated.current();
-		indexToProgress++;
-
-		if(m_currentTimeIterated.isAtEnd())
-		{
-			if(m_isLooping)
-		}
-		else
-		{
-			m_currentTimeIterated.next();
-		}
-	}
-
-	if (indexToProgress > 0)
-	{
-		updateTile(renderComponent, indexToProgress);
-	}
-}
-
-void AnimationComponent::updateTile(graphics::RenderComponent & renderComponent, 
-									unsigned indexToProgress)
-{
-	
-}
-
-void AnimationComponent::setAnimationIterator(SequenceID sequenceID)
-{
-	m_currentAnimationIterated = s_sequenceManager->getSequence(sequenceID).getIterator();
-}
-
-void AnimationComponent::setTileIterator(TileGroupID tileGroupID)
-{
-	m_currentTileIterated = s_tileManager->getIterator(tileGroupID);
-}
-
-void AnimationComponent::setTimeIterator(TimeID timeID)
-{
-	m_currentTimeIterated = s_timeManager->getTime(timeID).getIterator();
+	m_player.setAnimation(state.getAnimationID(), *s_animationManager);
+	m_player.setRepeat(state.isRepeating());
+	m_player.setReverseOrder(state.isInReverseOrder());
 }

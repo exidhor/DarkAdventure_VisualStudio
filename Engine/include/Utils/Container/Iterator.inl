@@ -15,6 +15,14 @@ Iterator<Object>::Iterator(std::vector<Object> const& dataArray)
 }
 
 template <typename Object>
+Iterator<Object>::Iterator(Iterator const& other)
+	: m_array(other.m_array),
+	m_currentIndex(other.m_currentIndex)
+{
+	// nothing
+}
+
+template <typename Object>
 void Iterator<Object>::reset()
 {
 	m_currentIndex = 0;
@@ -34,7 +42,7 @@ Object const& Iterator<Object>::next()
 		m_currentIndex++;
 	}
 
-	return m_currentIndex;
+	return m_data[m_currentIndex];
 }
 
 template <typename Object>
@@ -45,7 +53,7 @@ Object const& Iterator<Object>::previous()
 		m_currentIndex--;
 	}
 
-	return m_currentIndex;
+	return m_data[m_currentIndex];
 }
 
 template <typename Object>

@@ -2,6 +2,7 @@
 
 using namespace dae::graphics;
 using namespace dae::utils;
+using namespace dae;
 
 VertexArray::VertexArray()
         : VertexArray(0)
@@ -82,6 +83,25 @@ void VertexArray::add(VertexArray const& vertexArray)
     {
         m_vertices.push_back(vertexArray.m_vertices[i]);
     }
+}
+
+void VertexArray::setTexturePoint(utils::AlignedRect const& rect)
+{
+	// top left point
+	m_vertices[0].texCoords.x = rect.left;
+	m_vertices[0].texCoords.y = rect.top;
+
+	// top right point
+	m_vertices[1].texCoords.x = rect.getRight();
+	m_vertices[1].texCoords.y = rect.top;
+
+	// bot right point
+	m_vertices[2].texCoords.x = rect.getRight();
+	m_vertices[2].texCoords.y = rect.getBottom();
+
+	// bot left point
+	m_vertices[3].texCoords.x = rect.left;
+	m_vertices[3].texCoords.y = rect.getBottom();
 }
 
 void VertexArray::setColor(sf::Color const& color)

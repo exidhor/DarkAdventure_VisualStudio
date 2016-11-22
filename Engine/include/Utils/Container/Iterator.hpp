@@ -12,6 +12,7 @@ namespace dae
 		public:
 			Iterator();
 			Iterator(std::vector<Object> const& dataArray);
+			Iterator(Iterator const& other);
 
 			Iterator<Object> operator=(const Iterator<Object>& other) = default;
 
@@ -27,8 +28,7 @@ namespace dae
 			bool isAtEnd() const;
 			bool isAtStart() const;
 
-		private:
-
+		protected:
 			int getLastIndex() const; // the return type is int in case of the array size is 0
 
 			const std::vector<Object> & m_array;

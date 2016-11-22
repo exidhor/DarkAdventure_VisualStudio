@@ -5,8 +5,6 @@
 #include "Utils/Container/IDContainer.hpp"
 #include "Animations/Tile/TileKey.hpp"
 #include "Animations/Tile/Tile.hpp"
-#include "Animations/Tile/TileGroup.hpp"
-#include "Animations/Tile/TileGroupID.hpp"
 #include "Animations/Tile/TileID.hpp"
 #include "Graphics/Texture/TextureID.hpp"
 
@@ -27,16 +25,10 @@ namespace dae
 
 			Tile const& getTile(TileID const& tileID) const;
 
-			TileID getTileID(TileGroupID const& tileGroupID, unsigned tileIndex) const;
-
-			TileGroupID getTileGroupID(TileKey const& tileKey) const;
-
-			unsigned getGroupSize(TileGroupID const& tileGroupID) const;
-
-			utils::Iterator<Tile> getIterator(TileGroupID const& tileGroupID) const;
+			TileID getTileID(TileKey const& tileKey) const;
 
 		private :
-			utils::IDContainer<TileGroup, TileKey, utils::Hash_string_key> m_idContainer;
+			utils::IDContainer<Tile, TileKey, utils::Hash_string_key> m_idContainer;
 		};
 	}
 }

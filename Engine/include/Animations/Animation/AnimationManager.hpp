@@ -17,7 +17,7 @@ namespace dae
 			AnimationManager();
 
 			AnimationID createAnimation(TileGroupID const& tileGroupID,
-								   TimeID const& timeID,
+								   Time const& time,
 								   std::string const& key);
 
 			Animation const& getAnimation(AnimationID const& animationID) const;

@@ -3,7 +3,7 @@
 
 #include "Graphics/GraphicsEngine.hpp"
 #include "Graphics/Render/RenderComponent.hpp"
-#include "Utils/Container/Fatory.hpp"
+#include "Utils/Container/Factory.hpp"
 
 using namespace dae::graphics;
 using namespace dae::utils;

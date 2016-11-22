@@ -99,13 +99,7 @@
     <ClInclude Include="include\Animations\Tile\TileID.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Animations\Tile\TileGroup.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Animations\Tile\TileKey.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Animations\Tile\TileGroupID.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Utils\Container\MappedArray.hpp">
@@ -117,18 +111,6 @@
     <ClInclude Include="include\Utils\Container\IDContainer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Animations\Time\Timer.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Animations\Time\Time.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Animations\Time\TimeManager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Animations\Time\TimeKey.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Utils\Identifier\KeyString.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -136,9 +118,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Graphics\Texture\TextureKey.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Animations\Time\TimeID.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Animations\Animation\Animation.hpp">
@@ -156,19 +135,22 @@
     <ClInclude Include="include\Animations\AnimationComponent.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Animations\Sequence\Sequence.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Animations\Sequence\SequenceID.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Animations\Sequence\SequenceKey.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Animations\Sequence\SequenceManager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Utils\Container\Iterator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Animations\Animation\Time.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Animations\AnimationPlayer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Utils\Container\StateIterator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Animations\Machine\AnimationMachine.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Animations\Machine\AnimationState.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -230,9 +212,6 @@
     <ClCompile Include="source\Animations\Tile\Tile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Animations\Tile\TileGroup.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\Animations\Tile\TileManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -242,22 +221,19 @@
     <ClCompile Include="source\Graphics\Layer\LayerFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Animations\Time\Time.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Animations\Time\TimeManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Animations\Animation\Animaiton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\Animations\Animation\AnimationManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Animations\Sequence\Sequence.cpp">
+    <ClCompile Include="source\Animations\AnimationPlayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Animations\Sequence\SequenceManager.cpp">
+    <ClCompile Include="source\Animations\Animation\Animation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Animations\Machine\AnimationMachine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Animations\Machine\AnimationState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -272,6 +248,9 @@
       <Filter>Header Files</Filter>
     </None>
     <None Include="include\Utils\Container\Iterator.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="include\Utils\Container\StateIterator.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>
