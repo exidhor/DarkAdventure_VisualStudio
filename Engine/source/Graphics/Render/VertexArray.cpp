@@ -11,9 +11,8 @@ VertexArray::VertexArray()
 }
 
 VertexArray::VertexArray(int size)
-    : m_vertices(size, sf::Vertex())
 {
-    // nothing
+	m_vertices.reserve(size);
 }
 
 VertexArray::VertexArray(std::vector<Vec2f> const& vertexPosition)
@@ -29,7 +28,7 @@ VertexArray::VertexArray(std::vector<Vec2f> const& vertexPosition)
 VertexArray::VertexArray(VertexArray const &vertexArray)
         : m_vertices(vertexArray.m_vertices)
 {
-
+	// nothing
 }
 
 VertexArray::~VertexArray()

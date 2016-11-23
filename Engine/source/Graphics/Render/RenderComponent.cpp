@@ -33,6 +33,11 @@ void RenderComponent::setLayer(std::string const& key)
 	m_displayPackage.setLayer(LayerKey(key));
 }
 
+void RenderComponent::setSeparateDraw(bool isSeparateDraw)
+{
+	m_displayPackage.setSeparateDraw(isSeparateDraw);
+}
+
 void RenderComponent::setDisplayPackage(DisplayPackage const& displayPackage)
 {
 	m_displayPackage = displayPackage;

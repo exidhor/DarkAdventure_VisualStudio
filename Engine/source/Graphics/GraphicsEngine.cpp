@@ -41,6 +41,12 @@ void GraphicsEngine::addLayer(unsigned depthLevel,
 }
 
 TextureID GraphicsEngine::loadTexture(std::string const& path,
+									  std::string const& key)
+{
+	return m_textureManager.loadTexture(path, key);
+}
+
+TextureID GraphicsEngine::loadTexture(std::string const& path,
                                       std::string const& key,
                                       sf::IntRect const& rect)
 {
@@ -62,6 +68,13 @@ void GraphicsEngine::display()
 {
     m_drawer.draw(m_displayManager, m_textureManager, *m_window);
     m_window->display();
+}
+
+void GraphicsEngine::setDefaultLayerSizes(unsigned vertexSize,
+										  unsigned differentPrimitiveSize)
+{
+	m_displayManager.setDefaultVertexLayerSize(vertexSize);
+	m_displayManager.setDefaultDifferentVertexSize(differentPrimitiveSize);
 }
 
 void GraphicsEngine::setWindowPtr(sf::RenderWindow * ptr_window)

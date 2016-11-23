@@ -48,6 +48,9 @@ namespace dae
 						  unsigned differentVertexSize,
 						  std::string const& key);
 
+			TextureID loadTexture(std::string const& path,
+								  std::string const& key);
+
             TextureID loadTexture(std::string const& path,
                                   std::string const& key,
                                   sf::IntRect const& rect);
@@ -57,6 +60,8 @@ namespace dae
             void draw(RenderComponent & renderComponent);
 
             void display();
+
+			void setDefaultLayerSizes(unsigned vertexSize, unsigned differentPrimitiveSize);
 
             void setWindowPtr(sf::RenderWindow * ptr_window);
 

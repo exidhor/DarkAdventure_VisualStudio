@@ -49,6 +49,13 @@ namespace dae
 
             void setLayer(std::string const& key);
 
+			/**
+			* \brief	Set the parameter which determine if it can be merge
+			*			which the other draw, if it's possible
+			* \param	isSeparateDraw : True if we want NOT merge, False otherwise
+			*/
+			void setSeparateDraw(bool isSeparateDraw);
+
 			void setDisplayPackage(DisplayPackage const& displayPackage);
 
 			void setVertexArray(VertexArray const& vertexArray);
