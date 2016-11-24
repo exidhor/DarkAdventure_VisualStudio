@@ -5,8 +5,6 @@
 
 #include <functional>
 #include <vector>
-#include <unordered_map>
-#include <algorithm>
 #include "Utils/Container/Iterator.hpp"
 #include "Utils/Container/IDContainer.hpp"
 
@@ -47,7 +45,10 @@ namespace dae
 			Iterator<unsigned> getIterator() const;
 
 		protected:
-			void push_back(Object const& newElement, Key const& key);
+			void push_back(Key && key, Object && newElement);
+			
+			template <class ... Args>
+			void emplace_back(Key&& key, Args&& ... args);
 
 		private:
 			IDContainer<Object, Key, Hash> m_iDContainer;

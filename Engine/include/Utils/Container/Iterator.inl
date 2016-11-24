@@ -22,18 +22,27 @@ Iterator<Object>::Iterator(Iterator const& other)
 }
 
 template <typename Object>
-Iterator<Object>::Iterator(Iterator && other)
-	: m_array(other.m_array),
-	m_currentIndex(other.m_currentIndex)
+Iterator<Object>::Iterator(Iterator && other) noexcept
+	: m_array(std::forward<Iterator>(other).m_array),
+	m_currentIndex(std::forward<Iterator>(other).m_currentIndex)
 {
 	// nothing
 }
 
 template <typename Object>
-Iterator<Object> & Iterator<Object>::operator=(Iterator&& other)
+Iterator<Object> & Iterator<Object>::operator=(Iterator const& other)
 {
-	m_array = (std::forward<Iterator>(other)).m_array;
+	m_array = other.m_array;
 	m_currentIndex = other.m_currentIndex;
+
+	return *this;
+}
+
+template <typename Object>
+Iterator<Object> & Iterator<Object>::operator=(Iterator&& other) noexcept
+{
+	m_array = std::forward<Iterator>(other).m_array;
+	m_currentIndex = std::forward<Iterator>(other).m_currentIndex;
 
 	return *this;
 }

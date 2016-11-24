@@ -17,7 +17,7 @@ TileID TileManager::loadTile(graphics::TextureID const& textureID,
 									utils::AlignedRect const& rect,
 									std::string const& key)
 {
-	m_idContainer.push_back(Tile(textureID, rect), TileKey(key));
+	m_idContainer.push_back(TileKey(key), Tile(textureID, rect));
 
 	return TileID(m_idContainer.size() - 1);
 }

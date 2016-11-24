@@ -23,7 +23,7 @@ void IDContainer<Object, Key, Hash>::push_back(Key&& key, Object&& newElement)
 {
 	m_data.push_back(std::forward<Object>(newElement));
 
-	constructKey(key, lastIndex());
+	constructKey(std::forward<Key>(key), lastIndex());
 }
 
 template <typename Object, typename Key, typename Hash>
@@ -32,7 +32,7 @@ void IDContainer<Object, Key, Hash>::emplace_back(Key&& key, Args&& ... args)
 {
 	m_data.emplace_back(args);
 
-	constructKey(key, lastIndex());
+	constructKey(std::forward<Key>(key), lastIndex());
 }
 
 template <typename Object, typename Key, typename Hash>

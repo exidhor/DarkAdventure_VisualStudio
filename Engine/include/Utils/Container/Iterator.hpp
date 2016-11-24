@@ -13,9 +13,10 @@ namespace dae
 			Iterator();
 			Iterator(std::vector<Object> const& dataArray);
 			Iterator(Iterator const& other);
-			Iterator(Iterator && other); // move constructor (when model is temporary)
+			Iterator(Iterator && other) noexcept; // move constructor (when model is temporary)
 
-			Iterator<Object> & operator=(Iterato&& other);
+			Iterator<Object> & operator=(Iterator const& other);
+			Iterator<Object> & operator=(Iterator&& other) noexcept;
 
 			void reset();
 			void setToTheEnd();

@@ -20,8 +20,8 @@ VertexArray::VertexArray(std::vector<Vec2f> const& vertexPosition)
 {
     for(unsigned i = 0; i < vertexPosition.size(); i++)
     {
-        m_vertices.emplace_back(sf::Vertex(sf::Vector2f(vertexPosition[i].x,
-                                                        vertexPosition[i].y)));
+        m_vertices.emplace_back(sf::Vector2f(vertexPosition[i].x,
+								             vertexPosition[i].y));
     }
 }
 

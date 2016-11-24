@@ -4,19 +4,16 @@ using namespace dae::graphics;
 
 Layer::Layer()
 	: m_id(0),
-	m_depthLevel(0),
-	m_key("")
+	m_depthLevel(0)
 {
-	
+	// nothing
 }
 
 Layer::Layer(unsigned id, 
 			 unsigned vertexNumberMax, 
-			 unsigned differentVertexNumberMax, 
-			 std::string const& key)
+			 unsigned differentVertexNumberMax)
     : m_id(id), 
 	  m_depthLevel(0),
-	  m_key(key),
       m_vertexArray(vertexNumberMax),
 	  m_separateVertexArray(differentVertexNumberMax)
 {
@@ -26,12 +23,21 @@ Layer::Layer(unsigned id,
 Layer::Layer(Layer const& displayLayer)
 	: m_id(displayLayer.m_id.getValue()),
 	  m_depthLevel(displayLayer.m_depthLevel),
-	  m_key(displayLayer.m_key),
       m_vertexArray(displayLayer.m_vertexArray),
 	  m_separateVertexArray(displayLayer.m_separateVertexArray)
 {
     // nothing
 }
+
+/*
+Layer::Layer(Layer && layer) noexcept
+	: m_id(std::forward<Layer>(layer).m_id),
+	m_depthLevel(std::forward<Layer>(layer).m_depthLevel),
+	m_vertexArray(std::forward<Layer>(layer).m_vertexArray),
+	m_separateVertexArray(std::forward<Layer>(layer).m_separateVertexArray)
+{
+	// nothing
+}*/
 
 Layer::~Layer()
 {
@@ -61,11 +67,6 @@ void Layer::clear()
 unsigned Layer::getDepthLevel() const
 {
     return m_depthLevel;
-}
-
-LayerKey const& Layer::getKey() const
-{
-	return m_key;
 }
 
 void Layer::setID(unsigned newID)

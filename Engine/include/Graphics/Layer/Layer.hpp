@@ -24,9 +24,9 @@ namespace dae
 	    class ENGINE_API Layer
         {
 
-			//friend class LayerFactory; // with private constructors -> Factory Pattern
-
         public :
+
+			Layer();
 
 			/*!
 			* \brief   Construct the layer with default values
@@ -35,15 +35,13 @@ namespace dae
 			*          in the layer
 			* \param	differentVertexNumberMax : the size reserved for
 			*			the separate vertex array
-			* \param	key : the LayerKey
 			* \warning the texture is set to 0 (no texture) by default
 			* \warning the primitive is not set
 			* \warning the depth level is set to 0 by default
 			*/
 			Layer(unsigned id,
 				  unsigned vertexNumberMax,
-				  unsigned differentVertexNumberMax,
-				  std::string const& key);
+				  unsigned differentVertexNumberMax);
 
 			/*!
 			* \brief   Create a correct copy of the layer, only for save
@@ -52,9 +50,6 @@ namespace dae
 			* \warning IDs are copied, then it safeless to use in DisplayManager
 			*/
 			Layer(Layer const& displayLayer);
-
-
-			Layer();
 
             virtual ~Layer();
 
@@ -88,11 +83,6 @@ namespace dae
             unsigned getDepthLevel() const;
 
             /*!
-             * \return  the LayerKey created
-             */
-            LayerKey const& getKey() const;
-
-            /*!
              * \brief   modify the value of the ID
              * \param   newID : the value of the new ID
              */
@@ -114,7 +104,6 @@ namespace dae
         private :
             LayerID m_id;
             unsigned m_depthLevel;
-			LayerKey m_key;
 
             VertexArray m_vertexArray;
 			SeparateVertexArray m_separateVertexArray;

@@ -32,16 +32,6 @@ void MappedArray<Object, Key, CompareData, Hash>::sort()
 }
 
 template <typename Object, typename Key, typename CompareData, typename Hash>
-void MappedArray<Object, Key, CompareData, Hash>::push_back(Object const& newElement, Key const& key)
-{
-	m_iDContainer.push_back(newElement, key);
-
-	unsigned index = m_iDContainer.size()-1;
-
-	m_indexArray.push_back(index);
-}
-
-template <typename Object, typename Key, typename CompareData, typename Hash>
 Object & MappedArray<Object, Key, CompareData, Hash>::operator[](unsigned index)
 {
 	return m_iDContainer[index];
@@ -75,4 +65,21 @@ template <typename Object, typename Key, typename CompareData, typename Hash>
 Iterator<unsigned> MappedArray<Object, Key, CompareData, Hash>::getIterator() const
 {
 	return Iterator<unsigned>(m_indexArray);
+}
+
+template <typename Object, typename Key, typename CompareData, typename Hash>
+void MappedArray<Object, Key, CompareData, Hash>::push_back(Key && key, Object && newElement)
+{
+	m_iDContainer.push_back(std::forward<Key>(key), std::forward<Object>(newElement));
+
+	m_indexArray.push_back(m_iDContainer.lastIndex());
+}
+
+template <typename Object, typename Key, typename CompareData, typename Hash>
+template <class ... Args>
+void MappedArray<Object, Key, CompareData, Hash>::emplace_back(Key && key, Args && ... args)
+{
+	m_iDContainer.emplace_back(std::forward<Key>(key), args);
+
+	m_indexArray.push_back(m_iDContainer.lastIndex());
 }

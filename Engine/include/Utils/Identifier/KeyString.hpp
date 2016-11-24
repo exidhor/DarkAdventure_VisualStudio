@@ -16,6 +16,12 @@ namespace dae
 				// nothing
 			}
 
+			KeyString(std::string && key)
+				: m_key(std::forward<std::string>(key))
+			{
+				// nothing
+			}
+
 			std::string const& getKeyValue() const
 			{
 				return m_key;

@@ -8,11 +8,10 @@ void LayerFactory::AddLayer(unsigned depthLevel,
 							unsigned differentVertexNumberMax,
 							std::string const& key)
 {
-	push_back(Layer(id,
-			        vertexNumberMax,
-			        differentVertexNumberMax,
-			        key),
-			  LayerKey(key));
+	push_back(LayerKey(key),
+			  std::move(Layer(id,
+			                  vertexNumberMax,
+			                  differentVertexNumberMax)));
 
 	operator[](size() - 1).initDepthLevel(depthLevel);
 }
