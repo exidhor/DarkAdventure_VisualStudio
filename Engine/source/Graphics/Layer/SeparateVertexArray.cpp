@@ -42,7 +42,7 @@ void SeparateVertexArray::add(TextureID const& textureID,
 		&& getLastPrimitive() == primitive)
 	{
 		unsigned last = this->size()-1;
-		m_sizes[this->size()-1] += size;
+		m_sizes[last] += size;
 	}
 	else
 	{

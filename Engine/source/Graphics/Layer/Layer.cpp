@@ -26,18 +26,8 @@ Layer::Layer(Layer const& displayLayer)
       m_vertexArray(displayLayer.m_vertexArray),
 	  m_separateVertexArray(displayLayer.m_separateVertexArray)
 {
-    // nothing
-}
-
-/*
-Layer::Layer(Layer && layer) noexcept
-	: m_id(std::forward<Layer>(layer).m_id),
-	m_depthLevel(std::forward<Layer>(layer).m_depthLevel),
-	m_vertexArray(std::forward<Layer>(layer).m_vertexArray),
-	m_separateVertexArray(std::forward<Layer>(layer).m_separateVertexArray)
-{
 	// nothing
-}*/
+}
 
 Layer::~Layer()
 {
@@ -87,5 +77,7 @@ void Layer::draw(sf::RenderTarget & renderTarget,
 						  m_separateVertexArray.getSize(i),
 						  m_separateVertexArray.getPrimitive(i),
 						  renderState);
+
+		vertexIndex += m_separateVertexArray.getSize(i);
 	}
 }

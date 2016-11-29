@@ -25,10 +25,9 @@ VertexArray::VertexArray(std::vector<Vec2f> const& vertexPosition)
     }
 }
 
-VertexArray::VertexArray(VertexArray const &vertexArray)
-        : m_vertices(vertexArray.m_vertices)
+VertexArray::VertexArray(VertexArray const& vertexArray)
 {
-	// nothing
+	copy(vertexArray);
 }
 
 VertexArray::~VertexArray()
@@ -38,7 +37,13 @@ VertexArray::~VertexArray()
 
 void VertexArray::copy(VertexArray const& vertexArray)
 {
-    copyArray(m_vertices, vertexArray.m_vertices);
+	m_vertices.reserve(vertexArray.m_vertices.capacity());
+	m_vertices.resize(vertexArray.m_vertices.size());
+
+	for (unsigned i = 0; i < vertexArray.m_vertices.size(); i++)
+	{
+		m_vertices[i] = vertexArray.m_vertices[i];
+	}
 }
 
 sf::Vertex & VertexArray::operator[](unsigned index)

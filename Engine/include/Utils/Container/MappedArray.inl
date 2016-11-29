@@ -68,18 +68,18 @@ Iterator<unsigned> MappedArray<Object, Key, CompareData, Hash>::getIterator() co
 }
 
 template <typename Object, typename Key, typename CompareData, typename Hash>
-void MappedArray<Object, Key, CompareData, Hash>::push_back(Key && key, Object && newElement)
+void MappedArray<Object, Key, CompareData, Hash>::push_back(Key const& key, Object const& newElement)
 {
-	m_iDContainer.push_back(std::forward<Key>(key), std::forward<Object>(newElement));
+	m_iDContainer.push_back(key, newElement);
 
 	m_indexArray.push_back(m_iDContainer.lastIndex());
 }
 
 template <typename Object, typename Key, typename CompareData, typename Hash>
 template <class ... Args>
-void MappedArray<Object, Key, CompareData, Hash>::emplace_back(Key && key, Args && ... args)
+void MappedArray<Object, Key, CompareData, Hash>::emplace_back(Key const& key, Args && ... args)
 {
-	m_iDContainer.emplace_back(std::forward<Key>(key), args);
+	m_iDContainer.emplace_back(key, args);
 
 	m_indexArray.push_back(m_iDContainer.lastIndex());
 }

@@ -51,7 +51,7 @@ void display(GraphicsEngine & graphicEngine, std::vector<RenderComponent> & comp
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(1000, 800), "Test Graphic Engine");
+	sf::RenderWindow window(sf::VideoMode(1200, 1000), "Test Graphic Engine");
 
 	// initialization of the Graphics Engine
 	GraphicsEngine graphicEngine;
@@ -197,7 +197,7 @@ void constructRectangles(std::vector<RenderComponent> & components)
 	vertexPosition.push_back(Vec2f(716, 324));
 	vertexPosition.push_back(Vec2f(847, 324));
 	vertexPosition.push_back(Vec2f(847, 493));
-	vertexPosition.push_back(Vec2f(612, 493));
+	vertexPosition.push_back(Vec2f(716, 493));
 
 	components.push_back(RenderComponent(vertexPosition, sf::Quads));
 }
@@ -277,14 +277,17 @@ void setLayersToComponents(std::vector<RenderComponent> & components)
 		{
 		case 0 :
 			components[i].setLayer(FIRST_LAYER_KEY);
+			components[i].setColor(sf::Color::Yellow);
 			break;
 
 		case 1 :
 			components[i].setLayer(SECOND_LAYER_KEY);
+			components[i].setColor(sf::Color::Blue);
 			break;
 
 		case 2 :
 			components[i].setLayer(LAST_LAYER_KEY);
+			components[i].setColor(sf::Color::Red);
 			break;
 		}
 	}

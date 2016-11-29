@@ -45,10 +45,10 @@ namespace dae
 			Iterator<unsigned> getIterator() const;
 
 		protected:
-			void push_back(Key && key, Object && newElement);
+			void push_back(Key const& key, Object const& newElement);
 			
 			template <class ... Args>
-			void emplace_back(Key&& key, Args&& ... args);
+			void emplace_back(Key const& key, Args&& ... args);
 
 		private:
 			IDContainer<Object, Key, Hash> m_iDContainer;

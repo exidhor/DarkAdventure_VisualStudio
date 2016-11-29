@@ -17,7 +17,7 @@ namespace dae
 			}
 
 			KeyString(std::string && key)
-				: m_key(std::forward<std::string>(key))
+				: m_key(key)
 			{
 				// nothing
 			}

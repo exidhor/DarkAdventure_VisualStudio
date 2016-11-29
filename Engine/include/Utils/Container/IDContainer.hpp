@@ -24,10 +24,10 @@ namespace dae
 
 			void reserve(unsigned size);
 
-			void push_back(Key&& key, Object&& newElement);
+			void push_back(Key const& key, Object const& newElement);
 
 			template <class ... Args>
-			void emplace_back(Key&& key, Args&& ... args);
+			void emplace_back(Key const& key, Args&& ... args);
 
 			Object & operator[](unsigned index);
 
@@ -46,7 +46,7 @@ namespace dae
 			unsigned lastIndex() const;
 
 		protected:
-			void constructKey(Key&& key, unsigned index);
+			void constructKey(Key const& key, unsigned index);
 
 			std::vector<Object> m_data; // contains the objet datas
 			std::unordered_map<Key, unsigned, Hash> m_map;// used to be able to access to the element with key

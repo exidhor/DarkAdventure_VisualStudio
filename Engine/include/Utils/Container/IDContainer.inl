@@ -19,20 +19,20 @@ void IDContainer<Object, Key, Hash>::reserve(unsigned size)
 }
 
 template <typename Object, typename Key, typename Hash>
-void IDContainer<Object, Key, Hash>::push_back(Key&& key, Object&& newElement)
+void IDContainer<Object, Key, Hash>::push_back(Key const& key, Object const& newElement)
 {
-	m_data.push_back(std::forward<Object>(newElement));
+	m_data.push_back(newElement);
 
-	constructKey(std::forward<Key>(key), lastIndex());
+	constructKey(key, lastIndex());
 }
 
 template <typename Object, typename Key, typename Hash>
 template <class ... Args>
-void IDContainer<Object, Key, Hash>::emplace_back(Key&& key, Args&& ... args)
+void IDContainer<Object, Key, Hash>::emplace_back(Key const& key, Args&& ... args)
 {
 	m_data.emplace_back(args);
 
-	constructKey(std::forward<Key>(key), lastIndex());
+	constructKey(key, lastIndex());
 }
 
 template <typename Object, typename Key, typename Hash>
@@ -86,7 +86,7 @@ unsigned IDContainer<Object, Key, Hash>::lastIndex() const
 }
 
 template <typename Object, typename Key, typename Hash>
-void IDContainer<Object, Key, Hash>::constructKey(Key&& key, unsigned index)
+void IDContainer<Object, Key, Hash>::constructKey(Key const& key, unsigned index)
 {
-	m_map.emplace(std::forward<Key>(key), index);
+	m_map.emplace(key, index);
 }
