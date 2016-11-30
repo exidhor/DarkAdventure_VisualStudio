@@ -5,19 +5,19 @@ using namespace dae;
 
 Time::Time(std::vector<unsigned> const& times)
 {
-	for (int i = 0; i < times.size(); i++)
+	for (unsigned i = 0; i < times.size(); i++)
 	{
 		m_timePerTile.push_back(times[i]);
 	}
 }
 
-Time::Time(float firstTime)
+Time::Time(unsigned firstTime)
 	: Time(firstTime, 1)
 {
 	// nothing
 }
 
-Time::Time(float time, unsigned size)
+Time::Time(unsigned time, unsigned size)
 	: m_timePerTile(1, time)
 {
 	// nothing
@@ -33,9 +33,9 @@ void Time::clear()
 	m_timePerTile.clear();
 }
 
-void Time::setAllValues(float value)
+void Time::setAllValues(unsigned value)
 {
-	for (int i = 0; i < m_timePerTile.size(); i++)
+	for (unsigned i = 0; i < m_timePerTile.size(); i++)
 	{
 		m_timePerTile[i] = value;
 	}

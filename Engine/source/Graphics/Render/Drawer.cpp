@@ -18,7 +18,7 @@ void Drawer::draw(DisplayManager & displayManager,
 {
 	dae::utils::Iterator<unsigned> iterator = displayManager.m_layerFactory.getIterator();
 
-	while(!iterator.isAtEnd())
+	while(!iterator.isStuck())
 	{
 		unsigned index = iterator.current();
 

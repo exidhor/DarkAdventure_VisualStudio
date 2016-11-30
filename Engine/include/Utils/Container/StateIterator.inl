@@ -97,6 +97,10 @@ Object const& StateIterator<Object>::next()
 		setToStart();
 		m_numberOfIterations++;
 	}
+	else
+	{
+		Iterator<Object>::m_isStuck = true;
+	}
 
 	return (*Iterator<Object>::m_array)[Iterator<Object>::m_currentIndex];
 }
@@ -119,6 +123,10 @@ Object const& StateIterator<Object>::previous()
 	{
 		setToEnd();
 		m_numberOfIterations++;
+	}
+	else
+	{
+		Iterator<Object>::m_isStuck = true;
 	}
 
 	return Iterator<Object>::m_array[Iterator<Object>::m_currentIndex];
@@ -157,10 +165,10 @@ bool StateIterator<Object>::isAtEnd() const
 {
 	if (m_reverseOrder)
 	{
-		return Iterator<Object>::isAtStart();
+		return Iterator<Object>::isFirst();
 	}
 
-	return Iterator<Object>::isAtEnd();
+	return Iterator<Object>::isLast();
 }
 
 template <typename Object>
@@ -175,10 +183,10 @@ bool StateIterator<Object>::isAtStart() const
 {
 	if (m_reverseOrder)
 	{
-		return Iterator<Object>::isAtEnd();
+		return Iterator<Object>::isLast();
 	}
 
-	return Iterator<Object>::isAtStart();
+	return Iterator<Object>::isFirst();
 }
 
 template <typename Object>

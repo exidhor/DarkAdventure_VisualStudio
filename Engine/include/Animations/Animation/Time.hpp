@@ -14,15 +14,15 @@ namespace dae
 		public:
 			Time(std::vector<unsigned> const& times);
 
-			Time(float firstTime);
+			Time(unsigned firstTime);
 
-			Time(float time, unsigned size);
+			Time(unsigned time, unsigned size);
 
 			void reserve(unsigned size);
 
 			void clear();
 
-			void setAllValues(float value);
+			void setAllValues(unsigned value);
 
 			unsigned & operator[](unsigned index);
 

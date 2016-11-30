@@ -25,12 +25,14 @@ namespace dae
 			Object const& current() const;
 			Object const& last() const;
 
-			bool isAtEnd() const;
-			bool isAtStart() const;
+			bool isLast() const;
+			bool isFirst() const;
+			bool isStuck() const;
 
 		protected:
 			int getLastIndex() const; // the return type is int in case of the array size is 0
 
+			bool m_isStuck;
 			std::vector<Object> const* m_array;
 			unsigned m_currentIndex;
 		};
