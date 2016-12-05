@@ -78,7 +78,7 @@ namespace dae
              *          can slow the process.
              * \param   vertexSize : The new size to set
              */
-            void resize(int vertexSize);
+            void reserve(int vertexSize);
 
             void clear();
 
@@ -100,6 +100,8 @@ namespace dae
              * \return  the size of the internal array
              */
             unsigned getSize() const;
+
+			unsigned getCapacity() const;
 
             sf::Color const& getColor() const;
 

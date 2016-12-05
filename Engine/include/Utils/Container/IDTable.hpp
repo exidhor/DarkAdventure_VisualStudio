@@ -14,9 +14,8 @@ namespace dae
 		template <typename Object,
 			typename Key,
 			typename Hash = std::hash<Key>>
-			class IDTable
+		class IDTable
 		{
-
 		public:
 			IDTable();
 
@@ -45,12 +44,13 @@ namespace dae
 
 			unsigned lastIndex() const;
 
+			unsigned capacity() const;
+
 		protected:
 			void constructKey(Key const& key, unsigned index);
 
 			std::vector<Object> m_data; // contains the objet datas
 			std::unordered_map<Key, unsigned, Hash> m_map;// used to be able to access to the element with key
-
 		private:
 			
 		};

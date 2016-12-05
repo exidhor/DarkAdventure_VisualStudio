@@ -25,6 +25,9 @@ namespace dae
         class ENGINE_API TextureManager
         {
         public :
+
+			friend class DEBUG_GraphicsView; // to be able to display internal infos
+
             /*!
              * \brief
              */

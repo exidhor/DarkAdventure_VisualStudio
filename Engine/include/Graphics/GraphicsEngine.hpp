@@ -22,6 +22,8 @@ namespace dae
         {
         public :
 
+			friend class DEBUG_GraphicsView; // to be able to display internal infos
+
             /*!
              * \brief
              */
@@ -72,7 +74,7 @@ namespace dae
         private :
             sf::RenderWindow * m_window;
 
-            LayerManager m_displayManager;
+            LayerManager   m_layerManager;
             Drawer         m_drawer;
             TextureManager m_textureManager;
         };

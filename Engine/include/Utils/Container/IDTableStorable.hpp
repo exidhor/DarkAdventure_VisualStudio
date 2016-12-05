@@ -9,6 +9,7 @@
 #include "Utils/Container/IDTable.hpp"
 
 
+
 namespace dae
 {
 	namespace utils
@@ -43,6 +44,8 @@ namespace dae
 			bool exists(Key const& key) const;
 
 			Iterator<unsigned> getIterator() const;
+
+			unsigned capacity() const;
 
 		protected:
 			void push_back(Key const& key, Object const& newElement);

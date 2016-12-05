@@ -60,7 +60,7 @@ sf::Vertex const& VertexArray::operator[](unsigned index) const
     return m_vertices[index];
 }
 
-void VertexArray::resize(int vertexSize)
+void VertexArray::reserve(int vertexSize)
 {
     reallocateArray(vertexSize);
 }
@@ -124,6 +124,11 @@ bool VertexArray::isVoid() const
 unsigned VertexArray::getSize() const
 {
     return m_vertices.size();
+}
+
+unsigned VertexArray::getCapacity() const
+{
+	return m_vertices.capacity();
 }
 
 sf::Color const& VertexArray::getColor() const

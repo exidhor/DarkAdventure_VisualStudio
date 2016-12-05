@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
+#include "Engine.hpp"
 #include "Graphics/GraphicsEngine.hpp"
 #include "Graphics/Render/RenderComponent.hpp"
 
@@ -51,6 +52,21 @@ void display(GraphicsEngine & graphicEngine, std::vector<RenderComponent> & comp
 
 int main()
 {
+	dae::Engine engine;
+
+	engine.init();
+
+	engine.createWindow();
+
+	while (engine.windowIsOpen())
+	{
+		engine.handleDebugInput();
+		engine.prepare();
+		engine.display();
+	}
+
+	return 1;
+
 	sf::RenderWindow window(sf::VideoMode(1200, 1000), "Test Graphic Engine");
 
 	// initialization of the Graphics Engine

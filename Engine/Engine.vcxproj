@@ -151,6 +151,7 @@
     <Text Include="mvs_file\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Animations\DEBUG_AnimationsView.hpp" />
     <ClInclude Include="include\Animations\Machine\AnimationMachine.hpp" />
     <ClInclude Include="include\Animations\AnimationPlayer.hpp" />
     <ClInclude Include="include\Animations\Animation\Animation.hpp" />
@@ -166,6 +167,8 @@
     <ClInclude Include="include\Animations\Tile\TileManager.hpp" />
     <ClInclude Include="include\Animations\Animation\Time.hpp" />
     <ClInclude Include="include\Config.hpp" />
+    <ClInclude Include="include\Engine.hpp" />
+    <ClInclude Include="include\Graphics\DEBUG_GraphicsView.hpp" />
     <ClInclude Include="include\Graphics\Layer\Layer.hpp" />
     <ClInclude Include="include\Graphics\Layer\LayerManager.hpp" />
     <ClInclude Include="include\Graphics\Layer\LayerFactory.hpp" />
@@ -185,6 +188,10 @@
     <ClInclude Include="include\Utils\Container\IDTableStorable.hpp" />
     <ClInclude Include="include\Utils\Container\StateIterator.hpp" />
     <ClInclude Include="include\Utils\Container\Vec2.hpp" />
+    <ClInclude Include="include\Utils\DEBUG_View\DEBUG_InfoType.hpp" />
+    <ClInclude Include="include\Utils\DEBUG_View\DEBUG_Line.hpp" />
+    <ClInclude Include="include\Utils\DEBUG_View\DEBUG_String.hpp" />
+    <ClInclude Include="include\Utils\DEBUG_View\DEBUG_View.hpp" />
     <ClInclude Include="include\Utils\Math\AlignedRect.hpp" />
     <ClInclude Include="include\Utils\Math\Math.hpp" />
     <ClInclude Include="include\Utils\Movement\Movement.hpp" />
@@ -200,7 +207,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="source\Engine.cpp" />
     <ClCompile Include="source\Animations\AnimationComponent.cpp" />
     <ClCompile Include="source\Animations\Animation\Time.cpp" />
     <ClCompile Include="source\Animations\Machine\AnimationMachine.cpp" />
@@ -210,6 +217,7 @@
     <ClCompile Include="source\Animations\Machine\AnimationState.cpp" />
     <ClCompile Include="source\Animations\Tile\Tile.cpp" />
     <ClCompile Include="source\Animations\Tile\TileManager.cpp" />
+    <ClCompile Include="source\Graphics\DEBUG_GraphicsView.cpp" />
     <ClCompile Include="source\Graphics\Layer\Layer.cpp" />
     <ClCompile Include="source\Graphics\Layer\LayerManager.cpp" />
     <ClCompile Include="source\Graphics\Layer\LayerFactory.cpp" />
@@ -227,6 +235,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="source\Utils\Container\Vec2.cpp" />
+    <ClCompile Include="source\Utils\DEBUG_View\DEBUG_Line.cpp" />
+    <ClCompile Include="source\Utils\DEBUG_View\DEBUG_String.cpp" />
+    <ClCompile Include="source\Utils\DEBUG_View\DEBUG_View.cpp" />
     <ClCompile Include="source\Utils\Transform\Rotation.cpp" />
     <ClCompile Include="source\Utils\Transform\Scaling.cpp" />
     <ClCompile Include="source\Utils\Transform\Transformable.cpp" />

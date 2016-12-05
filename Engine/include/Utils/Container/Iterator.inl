@@ -11,7 +11,10 @@ Iterator<Object>::Iterator(std::vector<Object> const& dataArray)
 	m_currentIndex(0),
 	m_isStuck(false)
 {
-	// nothing
+	if(m_array->size() == 0)
+	{
+		m_isStuck = true;
+	}
 }
 
 template <typename Object>

@@ -59,6 +59,8 @@ namespace dae
 		{
 		public :
 
+			friend class DEBUG_GraphicsView; // to be able to display internal infos
+
 			/**
 			 * \brief	Create a layer into the ID Table
 			 * \param	depthLevel : the depthLevel of the Layer 
@@ -72,6 +74,12 @@ namespace dae
 			              size_t vertexCapacity,
 			              size_t mergedDrawCapacity,
 			              std::string const& key);
+
+			/**
+			 * \brief	Return a unsigned capacity
+			 * \return  return a unsigned capacity
+			 */
+			unsigned capacity() const;
 
 		private :
 

@@ -15,13 +15,13 @@ GraphicsEngine::~GraphicsEngine()
 
 void GraphicsEngine::init(unsigned numberOfLayer)
 {
-    m_displayManager.reserve(numberOfLayer);
+    m_layerManager.reserve(numberOfLayer);
 }
 
 void GraphicsEngine::addLayer(unsigned depthLevel,
 							  std::string const& key)
 {
-	m_displayManager.addLayer(depthLevel, key);
+	m_layerManager.addLayer(depthLevel, key);
 }
 
 
@@ -29,7 +29,7 @@ void GraphicsEngine::addLayer(unsigned depthLevel,
 							  unsigned vertexLayerSize,
 							  std::string const& key)
 {
-	m_displayManager.addLayer(depthLevel, vertexLayerSize, key);
+	m_layerManager.addLayer(depthLevel, vertexLayerSize, key);
 }
 
 void GraphicsEngine::addLayer(unsigned depthLevel,
@@ -37,7 +37,7 @@ void GraphicsEngine::addLayer(unsigned depthLevel,
 							  unsigned differentVertexSize,
 							  std::string const& key)
 {
-	m_displayManager.addLayer(depthLevel, vertexLayerSize, differentVertexSize, key);
+	m_layerManager.addLayer(depthLevel, vertexLayerSize, differentVertexSize, key);
 }
 
 TextureID GraphicsEngine::loadTexture(std::string const& path,
@@ -56,25 +56,25 @@ TextureID GraphicsEngine::loadTexture(std::string const& path,
 void GraphicsEngine::clear()
 {
     m_window->clear();
-    m_displayManager.prepare();
+    m_layerManager.prepare();
 }
 
 void GraphicsEngine::draw(RenderComponent & renderComponent)
 {
-    m_displayManager.addVertices(renderComponent.m_displayPackage, renderComponent.m_vertexArray);
+    m_layerManager.addVertices(renderComponent.m_displayPackage, renderComponent.m_vertexArray);
 }
 
 void GraphicsEngine::display()
 {
-    m_drawer.draw(m_displayManager, m_textureManager, *m_window);
+    m_drawer.draw(m_layerManager, m_textureManager, *m_window);
     m_window->display();
 }
 
 void GraphicsEngine::setDefaultLayerSizes(unsigned vertexSize,
 										  unsigned differentPrimitiveSize)
 {
-	m_displayManager.setDefaultVertexLayerSize(vertexSize);
-	m_displayManager.setDefaultDifferentVertexSize(differentPrimitiveSize);
+	m_layerManager.setDefaultVertexLayerSize(vertexSize);
+	m_layerManager.setDefaultDifferentVertexSize(differentPrimitiveSize);
 }
 
 void GraphicsEngine::setWindowPtr(sf::RenderWindow * ptr_window)

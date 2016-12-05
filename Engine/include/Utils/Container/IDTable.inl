@@ -86,6 +86,12 @@ unsigned IDTable<Object, Key, Hash>::lastIndex() const
 }
 
 template <typename Object, typename Key, typename Hash>
+unsigned IDTable<Object, Key, Hash>::capacity() const
+{
+	return m_data.capacity();
+}
+
+template <typename Object, typename Key, typename Hash>
 void IDTable<Object, Key, Hash>::constructKey(Key const& key, unsigned index)
 {
 	m_map.emplace(key, index);

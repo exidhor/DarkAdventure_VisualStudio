@@ -23,6 +23,7 @@ namespace dae
         class ENGINE_API LayerManager
         {
             friend class Drawer; // to be able to access to the layer values
+			friend class DEBUG_GraphicsView; // to be able to display internal infos
 
         public :
             /*!

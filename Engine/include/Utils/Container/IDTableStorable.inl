@@ -68,6 +68,12 @@ Iterator<unsigned> IDTableStorable<Object, Key, CompareData, Hash>::getIterator(
 }
 
 template <typename Object, typename Key, typename CompareData, typename Hash>
+unsigned IDTableStorable<Object, Key, CompareData, Hash>::capacity() const
+{
+	return m_iDContainer.capacity();
+}
+
+template <typename Object, typename Key, typename CompareData, typename Hash>
 void IDTableStorable<Object, Key, CompareData, Hash>::push_back(Key const& key, Object const& newElement)
 {
 	m_iDContainer.push_back(key, newElement);

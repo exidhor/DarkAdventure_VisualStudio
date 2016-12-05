@@ -12,3 +12,8 @@ void LayerFactory::AddLayer(unsigned depthLevel,
 			         vertexCapacity,
 			         mergedDrawCapacity)));
 }
+
+unsigned LayerFactory::capacity() const
+{
+	return utils::IDTableStorable<Layer, LayerKey, Compare_layer, utils::Hash_string_key>::capacity();
+}
