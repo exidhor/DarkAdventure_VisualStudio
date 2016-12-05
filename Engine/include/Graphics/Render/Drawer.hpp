@@ -5,7 +5,7 @@
 
 #include "Config.hpp"
 #include "SFML/Graphics.hpp"
-#include "Graphics/Layer/DisplayManager.hpp"
+#include "Graphics/Layer/LayerManager.hpp"
 #include "Graphics/Texture/TextureManager.hpp"
 
 namespace dae
@@ -40,7 +40,7 @@ namespace dae
              * \param   renderTarget : where all the stuff will be
              *          drawn.
              */
-            void draw(DisplayManager & displayManager,
+            void draw(LayerManager & displayManager,
                       TextureManager & textureManager,
                       sf::RenderTarget & renderTarget);
             

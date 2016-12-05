@@ -69,9 +69,6 @@
     <ClInclude Include="include\Graphics\Render\Drawer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Graphics\Layer\DisplayManager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Graphics\Layer\Layer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -79,9 +76,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Graphics\Layer\LayerKey.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Graphics\Layer\SeparateVertexArray.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Animations\AnimationsEngine.hpp">
@@ -102,13 +96,7 @@
     <ClInclude Include="include\Animations\Tile\TileKey.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Utils\Container\MappedArray.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Graphics\Layer\LayerFactory.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Utils\Container\IDContainer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Utils\Identifier\KeyString.hpp">
@@ -151,6 +139,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Animations\Machine\AnimationState.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Utils\Container\IDTable.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graphics\Layer\LayerManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graphics\Layer\MergedDrawArray.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Utils\Container\IDTableStorable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -200,13 +200,7 @@
     <ClCompile Include="source\Graphics\Render\Drawer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Graphics\Layer\DisplayManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\Graphics\Layer\Layer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Graphics\Layer\SeparateVertexArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\Animations\Tile\Tile.cpp">
@@ -239,21 +233,27 @@
     <ClCompile Include="source\Animations\Animation\Time.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\Graphics\Layer\LayerManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graphics\Layer\MergedDrawArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="mvs_file\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="include\Utils\Container\MappedArray.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="include\Utils\Container\IDContainer.inl">
-      <Filter>Header Files</Filter>
-    </None>
     <None Include="include\Utils\Container\Iterator.inl">
       <Filter>Header Files</Filter>
     </None>
     <None Include="include\Utils\Container\StateIterator.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="include\Utils\Container\IDTable.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="include\Utils\Container\IDTableStorable.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>

@@ -14,11 +14,11 @@ namespace dae
 		template <typename Object,
 			typename Key,
 			typename Hash = std::hash<Key>>
-			class IDContainer
+			class IDTable
 		{
 
 		public:
-			IDContainer();
+			IDTable();
 
 			void clear();
 
@@ -55,6 +55,6 @@ namespace dae
 			
 		};
 
-	#include "Utils/Container/IDContainer.inl"
+	#include "Utils/Container/IDTable.inl"
 	}
 }

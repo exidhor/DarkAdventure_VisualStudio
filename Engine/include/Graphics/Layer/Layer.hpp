@@ -7,9 +7,7 @@
 #include <SFML/Graphics/PrimitiveType.hpp>
 #include "Graphics/Render/VertexArray.hpp"
 #include "Graphics/Texture/TextureID.hpp"
-#include "Graphics/Layer/LayerID.hpp"
-#include "Graphics/Layer/LayerKey.hpp"
-#include "Graphics/Layer/SeparateVertexArray.hpp"
+#include "Graphics/Layer/MergedDrawArray.hpp"
 #include "Graphics/Texture/TextureManager.hpp"
 
 namespace dae
@@ -18,75 +16,89 @@ namespace dae
     {
 	    /*!
 	     * \class   DisplayLayer
-	     * \brief   Regroup the vertices from the same display
-	     *          information into an array to draw it once
+	     * \brief   It's a big array of stuff to draw.
+	     *			It has a depthLevel which represents the time
+	     *			when this layer will be drawn compared to the
+	     *			other layer.
 	     */
 	    class ENGINE_API Layer
         {
 
         public :
 
+		    /**
+			 * \brief	Construct a default Layer.
+			 *			The depth level default value is 0.
+			 */
 			Layer();
 
+
+		    /**
+			 * \brief	Construct a Layer with a depthLevel value
+			 * \param	depthLevel : the depthLevel value
+			 */
+			Layer(unsigned depthLevel);
+
+
 			/*!
-			* \brief   Construct the layer with default values
-			* \param   id : the id of the layer
-			* \param   vertexNumberMax : the number of elements reserved
-			*          in the layer
-			* \param	differentVertexNumberMax : the size reserved for
-			*			the separate vertex array
-			* \warning the texture is set to 0 (no texture) by default
-			* \warning the primitive is not set
-			* \warning the depth level is set to 0 by default
+			* \brief	Construct the layer and reserve memory.
+			* \param	depthLevel : represents the time
+			*			when this layer will be drawn compared to the
+			*			other layer.
+			* \param	vertexCapacity : the number of elements reserved
+			*			in the layer
+			* \param	mergedDrawCapacity : the size reserved for
+			*			the merged draw array. It represents the different 
+			*			type of draw we can do.
 			*/
-			Layer(unsigned id,
-				  unsigned vertexNumberMax,
-				  unsigned differentVertexNumberMax);
+			Layer(unsigned depthLevel, 
+				  size_t vertexCapacity,
+				  size_t mergedDrawCapacity);
+
 
 			/*!
 			* \brief   Create a correct copy of the layer, only for save
 			*          usage.
 			* \param   displayLayer : the layer to copy
-			* \warning IDs are copied, then it safeless to use in DisplayManager
+			* \warning IDs are copied, then it safeless to use in  the LayerManager
 			*/
 			Layer(Layer const& displayLayer);
 
-            virtual ~Layer();
 
             /*!
-             * \brief   Set the DepthLevel
+             * \brief   Set the DepthLevel value.
              * \param   depthLevel : the DepthLevel value
              */
-            void initDepthLevel(unsigned depthLevel);
+            void setDepthLevel(unsigned depthLevel);
+
 
             /*!
              * \brief   Copy the vertices of the VertexArray
-             *          into the layer
+             *          into the layer and try to merge it with the
+             *          precedent draw stored
              * \param   vertexArray : it contains the vertices
              * \param	textureID : the id of the texture
              * \param	primitive : the sf::PrimitiveType need to draw it
-             * \param	separateDraw : if this draw has to be alone
+             * \param	separateDraw : if this draw has to be alone ie not
+             *			trying to merge it
              */
             void addVertices(VertexArray const& vertexArray, 
             				 TextureID const& textureID,
             				 sf::PrimitiveType primitve,
             				 bool separateDraw = false);
 
+
             /*!
              * \brief   Remove all the vertices into the layer
              */
             void clear();
+
 
             /*!
              * \return return the DepthLevel
              */
             unsigned getDepthLevel() const;
 
-            /*!
-             * \brief   modify the value of the ID
-             * \param   newID : the value of the new ID
-             */
-            void setID(unsigned newID);
 
 		    /**
 			 * \brief Draw all the vertices on the RenderTarger.
@@ -100,13 +112,13 @@ namespace dae
 					  sf::RenderStates renderState = sf::RenderStates::Default);
             
         protected :
-        
+			// nothing
+
         private :
-            LayerID m_id;
             unsigned m_depthLevel;
 
             VertexArray m_vertexArray;
-			SeparateVertexArray m_separateVertexArray;
+			MergedDrawArray m_separateVertexArray;
         };
         
     }

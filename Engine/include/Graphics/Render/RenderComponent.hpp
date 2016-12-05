@@ -10,11 +10,6 @@
 #include "Graphics/Layer/LayerKey.hpp"
 #include "Animations/Tile/Tile.hpp"
 
-namespace dae {namespace animations {
-	class Tile;
-}
-}
-
 namespace dae
 {
     namespace graphics

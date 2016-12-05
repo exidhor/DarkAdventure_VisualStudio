@@ -3,15 +3,12 @@
 using namespace dae::graphics;
 
 void LayerFactory::AddLayer(unsigned depthLevel,
-							unsigned id,
-							unsigned vertexNumberMax,
-							unsigned differentVertexNumberMax,
-							std::string const& key)
+                            size_t vertexCapacity,
+                            size_t mergedDrawCapacity,
+                            std::string const& key)
 {
 	push_back(LayerKey(key),
-			  (Layer(id,
-			        vertexNumberMax,
-			        differentVertexNumberMax)));
-
-	operator[](size() - 1).initDepthLevel(depthLevel);
+			  (Layer(depthLevel,
+			         vertexCapacity,
+			         mergedDrawCapacity)));
 }

@@ -167,12 +167,12 @@
     <ClInclude Include="include\Animations\Animation\Time.hpp" />
     <ClInclude Include="include\Config.hpp" />
     <ClInclude Include="include\Graphics\Layer\Layer.hpp" />
-    <ClInclude Include="include\Graphics\Layer\DisplayManager.hpp" />
+    <ClInclude Include="include\Graphics\Layer\LayerManager.hpp" />
     <ClInclude Include="include\Graphics\Layer\LayerFactory.hpp" />
     <ClInclude Include="include\Graphics\Render\Drawer.hpp" />
     <ClInclude Include="include\Graphics\Layer\LayerID.hpp" />
     <ClInclude Include="include\Graphics\Layer\LayerKey.hpp" />
-    <ClInclude Include="include\Graphics\Layer\SeparateVertexArray.hpp" />
+    <ClInclude Include="include\Graphics\Layer\MergedDrawArray.hpp" />
     <ClInclude Include="include\Graphics\GraphicsEngine.hpp" />
     <ClInclude Include="include\Graphics\Render\DisplayPackage.hpp" />
     <ClInclude Include="include\Graphics\Render\RenderComponent.hpp" />
@@ -180,9 +180,9 @@
     <ClInclude Include="include\Graphics\Texture\TextureID.hpp" />
     <ClInclude Include="include\Graphics\Texture\TextureKey.hpp" />
     <ClInclude Include="include\Graphics\Texture\TextureManager.hpp" />
-    <ClInclude Include="include\Utils\Container\IDContainer.hpp" />
+    <ClInclude Include="include\Utils\Container\IDTable.hpp" />
     <ClInclude Include="include\Utils\Container\Iterator.hpp" />
-    <ClInclude Include="include\Utils\Container\MappedArray.hpp" />
+    <ClInclude Include="include\Utils\Container\IDTableStorable.hpp" />
     <ClInclude Include="include\Utils\Container\StateIterator.hpp" />
     <ClInclude Include="include\Utils\Container\Vec2.hpp" />
     <ClInclude Include="include\Utils\Math\AlignedRect.hpp" />
@@ -211,10 +211,10 @@
     <ClCompile Include="source\Animations\Tile\Tile.cpp" />
     <ClCompile Include="source\Animations\Tile\TileManager.cpp" />
     <ClCompile Include="source\Graphics\Layer\Layer.cpp" />
-    <ClCompile Include="source\Graphics\Layer\DisplayManager.cpp" />
+    <ClCompile Include="source\Graphics\Layer\LayerManager.cpp" />
     <ClCompile Include="source\Graphics\Layer\LayerFactory.cpp" />
     <ClCompile Include="source\Graphics\Render\Drawer.cpp" />
-    <ClCompile Include="source\Graphics\Layer\SeparateVertexArray.cpp" />
+    <ClCompile Include="source\Graphics\Layer\MergedDrawArray.cpp" />
     <ClCompile Include="source\Graphics\GraphicsEngine.cpp" />
     <ClCompile Include="source\Graphics\Render\DisplayPackage.cpp" />
     <ClCompile Include="source\Graphics\Render\RenderComponent.cpp" />
@@ -235,8 +235,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="include\Utils\Container\Iterator.inl" />
-    <None Include="include\Utils\Container\MappedArray.inl" />
-    <None Include="include\Utils\Container\IDContainer.inl" />
+    <None Include="include\Utils\Container\IDTableStorable.inl" />
+    <None Include="include\Utils\Container\IDTable.inl" />
     <None Include="include\Utils\Container\StateIterator.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

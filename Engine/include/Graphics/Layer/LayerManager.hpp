@@ -13,14 +13,14 @@ namespace dae
 {
     namespace graphics
     {
+
+		// todo : refactor the doc
         
         /*!
-         * \class   DisplayManager
-         * \brief   It is in charge of the Layers. It contains a map
-         *          to find the good layer, and sort the layer in the
-         *          right order (depending of the depthLevel)
+         * \class   LayerManager
+         * \brief   // todo
          */
-        class ENGINE_API DisplayManager
+        class ENGINE_API LayerManager
         {
             friend class Drawer; // to be able to access to the layer values
 
@@ -29,7 +29,7 @@ namespace dae
              * \brief   Construct the DisplayManager with default values.
              * \warning The defaut layer size is set to 0
              */
-            DisplayManager();
+            LayerManager();
 
             /*!
              * \brief   Construct the DisplayManager.
@@ -40,11 +40,11 @@ namespace dae
              * \param	defaultDifferentVertexSize : the default number of 
              *			different draw we will reserved.
              */
-            DisplayManager(unsigned numberOfLayer, 
+            LayerManager(unsigned numberOfLayer, 
 						   unsigned defaultVertexLayerSize,
 						   unsigned defaultDifferentVertexSize);
 
-            virtual ~DisplayManager();
+            virtual ~LayerManager();
 
             /*!
              * \brief   Allocate or reallocate the array with the size
@@ -144,7 +144,6 @@ namespace dae
 			//LayerArray	m_layerArray;
 			LayerFactory m_layerFactory;
 
-			unsigned	m_lastLayerID;
             unsigned	m_defaultVertexLayerSize;
 			unsigned	m_defaultDifferentVertexSize;
 			bool		m_needToBeSorted;

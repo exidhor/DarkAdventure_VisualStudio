@@ -12,6 +12,8 @@
 #include "Utils/Container/Vec2.hpp"
 #include "Animations/Tile/Tile.hpp"
 
+// todo : refactor the doc
+
 namespace dae
 {
     namespace graphics
@@ -60,17 +62,21 @@ namespace dae
 
             /*!
              * \brief   Access to the internal array
-             * \param   the index of the case
+             * \param   index : the index of the case
              */
             sf::Vertex & operator[](unsigned index);
 
+			/*!
+			* \brief   Access to the internal array
+			* \param   index : the index of the case
+			*/
             sf::Vertex const& operator[](unsigned index) const;
 
             /*!
              * \brief   Set the size of the array.
              * \warning This method may allocate, then it
              *          can slow the process.
-             * \param   The new size to set
+             * \param   vertexSize : The new size to set
              */
             void resize(int vertexSize);
 

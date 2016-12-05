@@ -10,7 +10,6 @@ namespace dae
 {
     namespace graphics
     {
-        
         /*!
          * \class	LayerID
          * \brief	Small class which represent the layer id.
@@ -20,12 +19,19 @@ namespace dae
         {
         public :
 			
+	        /**
+			 * \brief	Construct a void LayerID with default value 0
+			 */
 			LayerID()
 				: UintID()
         	{
 				// nothing
 			}
 
+	        /**
+             * \brief	Construct a LayerID
+             * \param	id : the ID value 
+             */
             LayerID(unsigned id)
 				: UintID(id)
             {

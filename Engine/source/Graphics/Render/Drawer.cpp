@@ -12,7 +12,7 @@ Drawer::~Drawer()
     // nothing
 }
 
-void Drawer::draw(DisplayManager & displayManager,
+void Drawer::draw(LayerManager & displayManager,
                   TextureManager & textureManager,
                   sf::RenderTarget & renderTarget)
 {

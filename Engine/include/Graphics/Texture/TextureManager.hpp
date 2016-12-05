@@ -6,7 +6,7 @@
 #include "Config.hpp"
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Utils/Container/IDContainer.hpp"
+#include "Utils/Container/IDTable.hpp"
 #include "Graphics/Texture/TextureID.hpp"
 #include "Graphics/Texture/TextureKey.hpp"
 
@@ -51,7 +51,7 @@ namespace dae
         private :
             void loadVoidTexture();
 
-            utils::IDContainer<sf::Texture, TextureKey, utils::Hash_string_key> m_textures;
+            utils::IDTable<sf::Texture, TextureKey, utils::Hash_string_key> m_textures;
         };
         
     }

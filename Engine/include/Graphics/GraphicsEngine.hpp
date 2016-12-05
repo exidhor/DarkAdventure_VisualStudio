@@ -5,7 +5,7 @@
 
 #include "Config.hpp"
 #include <SFML/Graphics.hpp>
-#include "Graphics/Layer/DisplayManager.hpp"
+#include "Graphics/Layer/LayerManager.hpp"
 #include "Graphics/Render/Drawer.hpp"
 #include "Graphics/Texture/TextureManager.hpp"
 #include "Graphics/Render/RenderComponent.hpp"
@@ -72,7 +72,7 @@ namespace dae
         private :
             sf::RenderWindow * m_window;
 
-            DisplayManager m_displayManager;
+            LayerManager m_displayManager;
             Drawer         m_drawer;
             TextureManager m_textureManager;
         };

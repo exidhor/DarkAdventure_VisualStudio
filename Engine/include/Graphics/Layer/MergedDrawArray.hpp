@@ -16,20 +16,20 @@ namespace dae
 		 *			It try to do the minimal draw by merging the VertexArray when 
 		 *			it's possible.
 		 */
-		class ENGINE_API SeparateVertexArray
+		class ENGINE_API MergedDrawArray
 		{
 		public :
 
 			/**
 			 * \brief	Construct a void Separate Vertex Array
 			 */
-			SeparateVertexArray();
+			MergedDrawArray();
 
 			/**
 			 * \brief	Construct an Separate Vertex Array and allocate some memories
 			 * \param	reservedSize : the memory to allocate
 			 */
-			SeparateVertexArray(unsigned reservedSize);
+			MergedDrawArray(unsigned reservedSize);
 
 			/**
 			 * \brief	Allocate or reallocate the memory
@@ -86,6 +86,7 @@ namespace dae
 			TextureID const& getLastTextureID() const;
 			sf::PrimitiveType getLastPrimitive() const;
 
+			bool m_lastIsSperateDraw;
 			std::vector <TextureID> m_textureID;
 			std::vector <sf::PrimitiveType> m_primitives;
 			std::vector <unsigned> m_sizes;

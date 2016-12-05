@@ -3,41 +3,44 @@
 using namespace dae::graphics;
 
 Layer::Layer()
-	: m_id(0),
-	m_depthLevel(0)
+	: Layer(0)
 {
 	// nothing
 }
 
-Layer::Layer(unsigned id, 
-			 unsigned vertexNumberMax, 
-			 unsigned differentVertexNumberMax)
-    : m_id(id), 
-	  m_depthLevel(0),
+
+Layer::Layer(unsigned depthLevel)
+	: m_depthLevel(depthLevel)
+{
+	// nothing
+}
+
+
+Layer::Layer(unsigned depthLevel,
+			 size_t vertexNumberMax,
+			 size_t mergedDrawCapacity)
+    : m_depthLevel(depthLevel),
       m_vertexArray(vertexNumberMax),
-	  m_separateVertexArray(differentVertexNumberMax)
+	  m_separateVertexArray(mergedDrawCapacity)
 {
     // nothing
 }
 
+
 Layer::Layer(Layer const& displayLayer)
-	: m_id(displayLayer.m_id.getValue()),
-	  m_depthLevel(displayLayer.m_depthLevel),
+	: m_depthLevel(displayLayer.m_depthLevel),
       m_vertexArray(displayLayer.m_vertexArray),
 	  m_separateVertexArray(displayLayer.m_separateVertexArray)
 {
 	// nothing
 }
 
-Layer::~Layer()
-{
-    // nothing
-}
 
-void Layer::initDepthLevel(unsigned depthLevel)
+void Layer::setDepthLevel(unsigned depthLevel)
 {
     m_depthLevel = depthLevel;
 }
+
 
 void Layer::addVertices(VertexArray const& vertexArray,
 						TextureID const& textureID,
@@ -45,7 +48,11 @@ void Layer::addVertices(VertexArray const& vertexArray,
 						bool separateDraw)
 {
     m_vertexArray.add(vertexArray);
-	m_separateVertexArray.add(textureID, primitve, vertexArray.getSize(), separateDraw);
+
+	m_separateVertexArray.add(textureID, 
+							  primitve, 
+							  vertexArray.getSize(), 
+							  separateDraw);
 }
 
 void Layer::clear()
@@ -59,16 +66,12 @@ unsigned Layer::getDepthLevel() const
     return m_depthLevel;
 }
 
-void Layer::setID(unsigned newID)
-{
-    m_id = newID;
-}
-
 void Layer::draw(sf::RenderTarget & renderTarget,
 				 TextureManager const& textureManager,
 				 sf::RenderStates renderState)
 {
 	unsigned vertexIndex = 0;
+
 	for(unsigned i = 0; i < m_separateVertexArray.size(); i++)
 	{
 		renderState.texture = textureManager.getTexture(m_separateVertexArray.getTextureID(i));

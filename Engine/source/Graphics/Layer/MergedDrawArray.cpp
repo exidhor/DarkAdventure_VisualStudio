@@ -1,43 +1,43 @@
-#include "Graphics/Layer/SeparateVertexArray.hpp"
+#include "Graphics/Layer/MergedDrawArray.hpp"
 
 using namespace dae::graphics;
 
-SeparateVertexArray::SeparateVertexArray()
+MergedDrawArray::MergedDrawArray()
+	: m_lastIsSperateDraw(false)
 {
 	// nothing
 }
 
-SeparateVertexArray::SeparateVertexArray(unsigned reservedSize)
-	: m_textureID(reservedSize),
-	  m_primitives(reservedSize),
-	  m_sizes(reservedSize)
+MergedDrawArray::MergedDrawArray(unsigned reservedSize)
+	: m_lastIsSperateDraw(false)
 {
-	// nothing
+	reserve(reservedSize);
 }
 
-void SeparateVertexArray::reserve(unsigned size)
+void MergedDrawArray::reserve(unsigned size)
 {
-	clear();
-
 	m_textureID.reserve(size);
 	m_sizes.reserve(size);
 	m_primitives.reserve(size);
 }
 
-void SeparateVertexArray::clear()
+void MergedDrawArray::clear()
 {
 	m_textureID.clear();
 	m_sizes.clear();
 	m_primitives.clear();
+
+	m_lastIsSperateDraw = false;
 }
 
-void SeparateVertexArray::add(TextureID const& textureID, 
+void MergedDrawArray::add(TextureID const& textureID, 
 							  sf::PrimitiveType primitive, 
 							  unsigned size,
 							  bool separateDraw)
 {
 	if(this->size() != 0
 	    && !separateDraw
+	    && !m_lastIsSperateDraw
 		&& getLastTextureID() == textureID 
 		&& getLastPrimitive() == primitive)
 	{
@@ -49,35 +49,37 @@ void SeparateVertexArray::add(TextureID const& textureID,
 		m_textureID.push_back(textureID);
 		m_primitives.push_back(primitive);
 		m_sizes.push_back(size);
+
+		m_lastIsSperateDraw = separateDraw;
 	}
 }
 
-TextureID const& SeparateVertexArray::getTextureID(unsigned index) const
+TextureID const& MergedDrawArray::getTextureID(unsigned index) const
 {
 	return m_textureID[index];
 }
 
-sf::PrimitiveType SeparateVertexArray::getPrimitive(unsigned index) const
+sf::PrimitiveType MergedDrawArray::getPrimitive(unsigned index) const
 {
 	return m_primitives[index];
 }
 
-unsigned SeparateVertexArray::getSize(unsigned index) const
+unsigned MergedDrawArray::getSize(unsigned index) const
 {
 	return m_sizes[index];
 }
 
-unsigned SeparateVertexArray::size() const
+unsigned MergedDrawArray::size() const
 {
 	return m_textureID.size();
 }
 
-TextureID const& SeparateVertexArray::getLastTextureID() const
+TextureID const& MergedDrawArray::getLastTextureID() const
 {
 	return m_textureID[this->size()-1];
 }
 
-sf::PrimitiveType SeparateVertexArray::getLastPrimitive() const
+sf::PrimitiveType MergedDrawArray::getLastPrimitive() const
 {
 	return m_primitives[this->size()-1];
 }
