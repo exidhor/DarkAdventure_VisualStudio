@@ -76,20 +76,29 @@ void DEBUG_GraphicsView::updateInformations()
 {
 	if (!m_ptr_graphicsEngine)
 		return;
+	
+	// general layer info
+	LayerManager const& layerManager = m_ptr_graphicsEngine->m_layerManager;
 
-	m_numberOfLayers.setInfo1(std::to_string(m_ptr_graphicsEngine->m_layerManager.size()));
-	m_numberOfLayers.setInfo2("(" + std::to_string(m_ptr_graphicsEngine->m_layerManager.m_layerFactory.capacity()) + ")");
+	m_numberOfLayers.setInfo1(std::to_string(layerManager.size()));
+	m_numberOfLayers.setInfo2("(" + std::to_string(layerManager.m_layerFactory.capacity()) + ")");
 
-	m_numberOfTextures.setInfo1(std::to_string(m_ptr_graphicsEngine->m_textureManager.m_textures.size()));
-	m_numberOfTextures.setInfo2("(" + std::to_string(m_ptr_graphicsEngine->m_textureManager.m_textures.capacity()) + ")");
+	// general texture info
+	auto const& textureArray = m_ptr_graphicsEngine->m_textureManager.m_textures;
 
+	m_numberOfTextures.setInfo1(std::to_string(textureArray.size()));
+	m_numberOfTextures.setInfo2("(" + std::to_string(textureArray.capacity()) + ")");
+
+	// specific layer info
 	updateLayersInfos(m_layersDecription, m_texturesDecription);
 }
 
 void DEBUG_GraphicsView::updateLayersInfos(utils::DEBUG_String const& lastString,
 										   utils::DEBUG_String & nextString)
 {
-	m_layersInfos.resize(m_ptr_graphicsEngine->m_layerManager.m_layerFactory.size());
+	auto const& layerFactory = m_ptr_graphicsEngine->m_layerManager.m_layerFactory;
+
+	m_layersInfos.resize(layerFactory.size());
 
 	for(unsigned i = 0; i < m_layersInfos.size(); i++)
 	{
@@ -102,10 +111,11 @@ void DEBUG_GraphicsView::updateLayersInfos(utils::DEBUG_String const& lastString
 			m_layersInfos[i].setPositionNextTo(m_layersInfos[i - 1]);
 		}
 
-		m_layersInfos[i].setFont(m_font);
+		m_layersInfos[i].setFont(m_font); // because they can be created at this update
 		m_layersInfos[i].setLabel(std::to_string(i) + " : ");
-		m_layersInfos[i].setInfo1(std::to_string(m_ptr_graphicsEngine->m_layerManager.m_layerFactory[i].m_vertexArray.getSize()));
-		m_layersInfos[i].setInfo2("(" + std::to_string(m_ptr_graphicsEngine->m_layerManager.m_layerFactory[i].m_vertexArray.getCapacity()) + ")");
+		m_layersInfos[i].setInfo1(std::to_string(layerFactory[i].m_vertexArray.getSize()));
+		m_layersInfos[i].setInfo2("(" + std::to_string(layerFactory[i].m_vertexArray.getCapacity()) + ")");
+		m_layersInfos[i].setInfo3(layerFactory[i].m_key.getKeyValue());
 	}
 
 	nextString.setPositionNextTo(m_layersInfos[m_layersInfos.size() - 1]);

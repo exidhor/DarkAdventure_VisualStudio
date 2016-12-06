@@ -2,7 +2,7 @@
 #include "SFML/Graphics.hpp"
 #include "Utils/DEBUG_View/DEBUG_InfoType.hpp"
 
-#define COEF_SPACE 0.5
+#define COEF_SPACE 0.5f
 
 namespace dae
 {

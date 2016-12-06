@@ -7,7 +7,8 @@ Engine::Engine()
 	: m_window(nullptr), 
 	m_graphicsEngine(nullptr),
 	m_DEBUG_graphics(nullptr),
-	m_animationsEngine(nullptr)
+	m_animationsEngine(nullptr),
+	m_callbackEvent(nullptr)
 {
 	// nothing
 }
@@ -38,9 +39,6 @@ void Engine::init()
 
 	m_graphicsEngine = new graphics::GraphicsEngine();
 	m_graphicsEngine->setWindowPtr(m_window);
-	m_graphicsEngine->addLayer(1, 10, 2, "front");
-	m_graphicsEngine->addLayer(10, 64, 3, "back");
-	m_graphicsEngine->addLayer(5, 100, 4, "character");
 
 	// todo : remove this and do a FontManager instead
 	sf::Font* font = new sf::Font();	
@@ -51,11 +49,13 @@ void Engine::init()
 	m_animationsEngine = new animations::AnimationsEngine();
 }
 
-void Engine::createWindow()
+void Engine::createWindow(sf::VideoMode const& videoMode,
+						  std::string const& windowTitle,
+						  sf::Uint32 style)
 {
-	// todo : allow the user to create his custom window
-	m_window->create(sf::VideoMode(1000, 600),
-					 "DarkAdventure");
+	m_window->create(videoMode,
+					 windowTitle,
+					 style);
 }
 
 void Engine::handleDebugInput()
@@ -77,6 +77,10 @@ void Engine::handleDebugInput()
 				m_DEBUG_graphics->start();
 			}
 		}
+
+		// we handle the user callback method of the user AFTER
+		// the engine to be sure that the Engine get the priority
+		handleCallbackEvent(event);
 	}
 }
 
@@ -98,6 +102,11 @@ void Engine::display()
 	m_DEBUG_graphics->display();
 }
 
+void Engine::setCallbackEvent(callbackEvent newCallbackEvent)
+{
+	m_callbackEvent = newCallbackEvent;
+}
+
 bool Engine::windowIsOpen() const
 {
 	if (!checkInitialization())
@@ -105,6 +114,16 @@ bool Engine::windowIsOpen() const
 
 	return m_window->isOpen()
 		|| m_DEBUG_graphics->isOpen();
+}
+
+graphics::GraphicsEngine* Engine::graphics()
+{
+	return m_graphicsEngine;
+}
+
+animations::AnimationsEngine* Engine::animations()
+{
+	return m_animationsEngine;
 }
 
 bool Engine::checkInitialization() const
@@ -118,4 +137,10 @@ bool Engine::checkInitialization() const
 	}
 
 	return true;
+}
+
+void Engine::handleCallbackEvent(sf::Event const& event)
+{
+	if (m_callbackEvent)
+		m_callbackEvent(event);
 }

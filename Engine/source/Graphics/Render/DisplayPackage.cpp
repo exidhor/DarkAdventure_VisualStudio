@@ -25,6 +25,7 @@ void DisplayPackage::setTexture(TextureID id)
 
 void DisplayPackage::setLayer(LayerKey const& key)
 {
+	m_lastID_upToDate = false;
 	m_layerKey = key;
 }
 

@@ -6,7 +6,7 @@
 #include "Config.hpp"
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Utils/Container/IDTable.hpp"
+#include "Utils/Container/MapTable.hpp"
 #include "Graphics/Texture/TextureID.hpp"
 #include "Graphics/Texture/TextureKey.hpp"
 
@@ -54,7 +54,7 @@ namespace dae
         private :
             void loadVoidTexture();
 
-            utils::IDTable<sf::Texture, TextureKey, utils::Hash_string_key> m_textures;
+            utils::MapTable<sf::Texture, TextureKey, utils::Hash_string_key> m_textures;
         };
         
     }

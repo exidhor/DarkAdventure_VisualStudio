@@ -2,7 +2,7 @@
 
 #include "Config.hpp"
 #include "Utils/Math/AlignedRect.hpp"
-#include "Utils/Container/IDTable.hpp"
+#include "Utils/Container/MapTable.hpp"
 #include "Animations/Tile/TileKey.hpp"
 #include "Animations/Tile/Tile.hpp"
 #include "Animations/Tile/TileID.hpp"
@@ -28,7 +28,7 @@ namespace dae
 			TileID getTileID(TileKey const& tileKey) const;
 
 		private :
-			utils::IDTable<Tile, TileKey, utils::Hash_string_key> m_idContainer;
+			utils::MapTable<Tile, TileKey, utils::Hash_string_key> m_idContainer;
 		};
 	}
 }

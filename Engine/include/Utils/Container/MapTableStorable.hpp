@@ -6,7 +6,7 @@
 #include <functional>
 #include <vector>
 #include "Utils/Container/Iterator.hpp"
-#include "Utils/Container/IDTable.hpp"
+#include "Utils/Container/MapTable.hpp"
 
 
 
@@ -20,12 +20,12 @@ namespace dae
 			      typename Key,
 			      typename CompareData = std::less_equal<Object>,
 			      typename Hash = std::hash<Key>>
-		class IDTableStorable
+		class MapTableStorable
 		{
 			typedef bool(CompareData::*compare)(int, int);
 
 		public :
-			IDTableStorable();
+			MapTableStorable();
 
 			void clear();
 
@@ -54,14 +54,14 @@ namespace dae
 			void emplace_back(Key const& key, Args&& ... args);
 
 		private:
-			IDTable<Object, Key, Hash> m_iDContainer;
+			MapTable<Object, Key, Hash> m_iDContainer;
 
 			// used to modify (like a sort) the structure data
 			// without modifying the ID.
 			std::vector<unsigned> m_indexArray;
 		};
 
-	#include "Utils/Container/IDTableStorable.inl"
+	#include "Utils/Container/MapTableStorable.inl"
 	}
 }
 

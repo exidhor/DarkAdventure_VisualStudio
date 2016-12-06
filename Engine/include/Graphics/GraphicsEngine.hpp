@@ -68,8 +68,6 @@ namespace dae
             void setWindowPtr(sf::RenderWindow * ptr_window);
 
             sf::RenderWindow const* getWindowPtr() const;
-
-        protected :
         
         private :
             sf::RenderWindow * m_window;
@@ -77,6 +75,8 @@ namespace dae
             LayerManager   m_layerManager;
             Drawer         m_drawer;
             TextureManager m_textureManager;
+
+			utils::IDTable<RenderComponent> m_renderComponents;
         };
     }
 }

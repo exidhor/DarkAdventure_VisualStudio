@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Config.hpp"
-#include "Utils/Container/IDTableStorable.hpp"
+#include "Utils/Container/MapTableStorable.hpp"
 #include "Graphics/Layer/Layer.hpp"
 #include "Graphics/Layer/LayerKey.hpp"
 
@@ -52,7 +52,7 @@ namespace dae
 		 * \class	LayerFactory
 		 * \brief	Implements the ID Table Storable to create Layers.
 		 */
-		class ENGINE_API LayerFactory : public utils::IDTableStorable<Layer, 
+		class ENGINE_API LayerFactory : public utils::MapTableStorable<Layer, 
 			                                                      LayerKey, 
 			                                                      Compare_layer,
 		                                                          utils::Hash_string_key>

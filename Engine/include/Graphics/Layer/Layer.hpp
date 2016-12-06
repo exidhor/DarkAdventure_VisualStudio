@@ -9,13 +9,14 @@
 #include "Graphics/Texture/TextureID.hpp"
 #include "Graphics/Layer/MergedDrawArray.hpp"
 #include "Graphics/Texture/TextureManager.hpp"
+#include "LayerKey.hpp"
 
 namespace dae
 {
     namespace graphics
     {
 	    /*!
-	     * \class   DisplayLayer
+	     * \class   Layer
 	     * \brief   It's a big array of stuff to draw.
 	     *			It has a depthLevel which represents the time
 	     *			when this layer will be drawn compared to the
@@ -53,7 +54,8 @@ namespace dae
 			*			the merged draw array. It represents the different 
 			*			type of draw we can do.
 			*/
-			Layer(unsigned depthLevel, 
+			Layer(std::string const& key,
+				  unsigned depthLevel, 
 				  size_t vertexCapacity,
 				  size_t mergedDrawCapacity);
 
@@ -61,10 +63,10 @@ namespace dae
 			/*!
 			* \brief   Create a correct copy of the layer, only for save
 			*          usage.
-			* \param   displayLayer : the layer to copy
+			* \param   layer : the layer to copy
 			* \warning IDs are copied, then it safeless to use in  the LayerManager
 			*/
-			Layer(Layer const& displayLayer);
+			Layer(Layer const& layer);
 
 
             /*!
@@ -117,6 +119,8 @@ namespace dae
 			// nothing
 
         private :
+			LayerKey m_key;
+
             unsigned m_depthLevel;
 
             VertexArray m_vertexArray;

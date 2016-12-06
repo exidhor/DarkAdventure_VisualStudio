@@ -141,16 +141,10 @@
     <ClInclude Include="include\Animations\Machine\AnimationState.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Utils\Container\IDTable.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Graphics\Layer\LayerManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Graphics\Layer\MergedDrawArray.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Utils\Container\IDTableStorable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Graphics\DEBUG_GraphicsView.hpp">
@@ -172,6 +166,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Utils\DEBUG_View\DEBUG_Line.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Utils\Container\MapTable.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Utils\Container\IDTable.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Utils\Container\MapTableStorable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -283,10 +286,13 @@
     <None Include="include\Utils\Container\StateIterator.inl">
       <Filter>Header Files</Filter>
     </None>
+    <None Include="include\Utils\Container\MapTable.inl">
+      <Filter>Header Files</Filter>
+    </None>
     <None Include="include\Utils\Container\IDTable.inl">
       <Filter>Header Files</Filter>
     </None>
-    <None Include="include\Utils\Container\IDTableStorable.inl">
+    <None Include="include\Utils\Container\MapTableStorable.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>

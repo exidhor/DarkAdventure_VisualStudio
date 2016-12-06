@@ -2,6 +2,8 @@
 #include <vector>
 #include "Utils/DEBUG_View/DEBUG_String.hpp"
 
+#define DEBUG_COEF_SPACE 1
+
 namespace dae
 {
 	namespace utils
@@ -19,6 +21,8 @@ namespace dae
 
 			void setInfo2(std::string const& info);
 
+			void setInfo3(std::string const& info);
+
 			void draw(sf::RenderTarget & renderTarget);
 
 			void setPosition(sf::Vector2f const& position);
@@ -33,8 +37,10 @@ namespace dae
 			void computeOffset();
 
 			DEBUG_String m_label ;
+
 			DEBUG_String m_info_1;
 			DEBUG_String m_info_2;
+			DEBUG_String m_info_3;
 		};
 	}
 }

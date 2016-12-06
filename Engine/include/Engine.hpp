@@ -5,6 +5,8 @@
 
 namespace dae
 {
+	typedef void(*callbackEvent)(sf::Event const&);
+
 	class ENGINE_API Engine
 	{
 	public:
@@ -14,7 +16,9 @@ namespace dae
 
 		void init();
 
-		void createWindow();
+		void createWindow(sf::VideoMode const& videoMode, 
+						  std::string const& windowTitle,
+						  sf::Uint32 style = sf::Style::Default);
 
 		void handleDebugInput();
 
@@ -22,10 +26,17 @@ namespace dae
 
 		void display();
 
+		void setCallbackEvent(callbackEvent newCallbackEvent);
+
 		bool windowIsOpen() const;
+
+		graphics::GraphicsEngine* graphics();
+		animations::AnimationsEngine* animations();
 
 	private:
 		bool checkInitialization() const;
+
+		void handleCallbackEvent(sf::Event const& event); // todo : remove it (bad idea)
 
 		sf::RenderWindow* m_window;
 
@@ -33,5 +44,7 @@ namespace dae
 		graphics::DEBUG_GraphicsView* m_DEBUG_graphics;
 
 		animations::AnimationsEngine* m_animationsEngine;
+
+		callbackEvent m_callbackEvent;
 	};
 }

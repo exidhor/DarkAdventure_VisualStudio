@@ -10,7 +10,7 @@ DEBUG_String::DEBUG_String()
 
 void DEBUG_String::setPositionNextTo(DEBUG_String const& string)
 {
-	setPosition(sf::Vector2f(string.getGlobalBounds().left,
+	setPosition(sf::Vector2f(0,
 				string.getGlobalBounds().top + string.getGlobalBounds().height)
 				+ sf::Vector2f(0, string.getCharacterSize() * COEF_SPACE));
 }
@@ -54,6 +54,12 @@ void DEBUG_String::setInfoType(DEBUG_InfoType type)
 		setCharacterSize(DEBUG_INFO_2_SIZE);
 		setFillColor(DEBUG_INFO_2_COLOR);
 		setStyle(DEBUG_INFO_2_STYLE);
+		break;
+
+	case INFO_3:
+		setCharacterSize(DEBUG_INFO_3_SIZE);
+		setFillColor(DEBUG_INFO_3_COLOR);
+		setStyle(DEBUG_INFO_3_STYLE);
 		break;
 	}
 }

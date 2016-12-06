@@ -10,16 +10,19 @@ Layer::Layer()
 
 
 Layer::Layer(unsigned depthLevel)
-	: m_depthLevel(depthLevel)
+	: m_key(""),
+	m_depthLevel(depthLevel)
 {
 	// nothing
 }
 
 
-Layer::Layer(unsigned depthLevel,
+Layer::Layer(std::string const& key, 
+			 unsigned depthLevel,
 			 size_t vertexNumberMax,
 			 size_t mergedDrawCapacity)
-    : m_depthLevel(depthLevel),
+    : m_key(key),
+	  m_depthLevel(depthLevel),
       m_vertexArray(vertexNumberMax),
 	  m_separateVertexArray(mergedDrawCapacity)
 {
@@ -28,7 +31,8 @@ Layer::Layer(unsigned depthLevel,
 
 
 Layer::Layer(Layer const& displayLayer)
-	: m_depthLevel(displayLayer.m_depthLevel),
+	: m_key(displayLayer.m_key),
+	  m_depthLevel(displayLayer.m_depthLevel),
       m_vertexArray(displayLayer.m_vertexArray),
 	  m_separateVertexArray(displayLayer.m_separateVertexArray)
 {

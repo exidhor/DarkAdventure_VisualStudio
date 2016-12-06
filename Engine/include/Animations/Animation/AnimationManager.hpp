@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Config.hpp"
-#include "Utils/Container/IDTable.hpp"
+#include "Utils/Container/MapTable.hpp"
 #include "Animations/Animation/Animation.hpp"
 #include "Animations/Animation/AnimationKey.hpp"
 #include "Animations/Animation/AnimationID.hpp"
@@ -25,7 +25,7 @@ namespace dae
 			AnimationID getAnimationID(AnimationKey const& animationKey) const;
 
 		private:
-			utils::IDTable<Animation, AnimationKey, utils::Hash_string_key> m_idContainer;
+			utils::MapTable<Animation, AnimationKey, utils::Hash_string_key> m_idContainer;
 		};
 
 	}

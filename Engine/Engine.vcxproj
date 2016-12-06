@@ -183,9 +183,10 @@
     <ClInclude Include="include\Graphics\Texture\TextureID.hpp" />
     <ClInclude Include="include\Graphics\Texture\TextureKey.hpp" />
     <ClInclude Include="include\Graphics\Texture\TextureManager.hpp" />
-    <ClInclude Include="include\Utils\Container\IDTable.hpp" />
+    <ClInclude Include="include\Utils\Container\MapTable.hpp" />
     <ClInclude Include="include\Utils\Container\Iterator.hpp" />
-    <ClInclude Include="include\Utils\Container\IDTableStorable.hpp" />
+    <ClInclude Include="include\Utils\Container\MapTableStorable.hpp" />
+    <ClInclude Include="include\Utils\Container\IDTable.hpp" />
     <ClInclude Include="include\Utils\Container\StateIterator.hpp" />
     <ClInclude Include="include\Utils\Container\Vec2.hpp" />
     <ClInclude Include="include\Utils\DEBUG_View\DEBUG_InfoType.hpp" />
@@ -246,7 +247,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="include\Utils\Container\Iterator.inl" />
-    <None Include="include\Utils\Container\IDTableStorable.inl" />
+    <None Include="include\Utils\Container\MapTableStorable.inl" />
+    <None Include="include\Utils\Container\MapTable.inl" />
     <None Include="include\Utils\Container\IDTable.inl" />
     <None Include="include\Utils\Container\StateIterator.inl" />
   </ItemGroup>
