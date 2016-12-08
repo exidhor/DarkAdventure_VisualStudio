@@ -3,22 +3,22 @@
 using namespace dae::graphics;
 
 LayerManager::LayerManager()
-    : m_defaultVertexLayerSize(0),
-	  m_defaultDifferentVertexSize(0),
+    : m_defaultVertexCapacity(0),
+	  m_defaultMergedDrawCapacity(0),
       m_needToBeSorted(false)
 {
     // nothing
 }
 
-LayerManager::LayerManager(unsigned numberOfLayer,
-							   unsigned defaultVertexLayerSize,
-							   unsigned defaultDifferentVertexSize)
+LayerManager::LayerManager(size_t layerCapacity,
+						   size_t defaultVertexCapacity,
+						   size_t defaultMergedDrawCapacity)
         : m_layerFactory(),
-		  m_defaultVertexLayerSize(defaultVertexLayerSize),
-		  m_defaultDifferentVertexSize(defaultDifferentVertexSize),
+		  m_defaultVertexCapacity(defaultVertexCapacity),
+		  m_defaultMergedDrawCapacity(defaultMergedDrawCapacity),
           m_needToBeSorted(false)
 {
-   m_layerFactory.reserve(numberOfLayer);
+   m_layerFactory.reserve(layerCapacity);
 }
 
 LayerManager::~LayerManager()
@@ -26,9 +26,9 @@ LayerManager::~LayerManager()
     // nothing
 }
 
-void LayerManager::reserve(unsigned size)
+void LayerManager::reserve(size_t capacity)
 {
-	m_layerFactory.reserve(size);
+	m_layerFactory.reserve(capacity);
 }
 
 void LayerManager::prepare()
@@ -44,44 +44,45 @@ void LayerManager::prepare()
 }
 
 void LayerManager::addLayer(unsigned depthLevel,
-                              std::string const& key)
+                            std::string const& key)
 {
-    addLayer(depthLevel, m_defaultVertexLayerSize, key);
+    addLayer(depthLevel, m_defaultVertexCapacity, key);
 }
 
 void LayerManager::addLayer(unsigned depthLevel,
-                              unsigned layerSize,
-							  std::string const& key)
+							size_t vertexCapacity,
+							std::string const& key)
 {
-	addLayer(depthLevel, layerSize, m_defaultDifferentVertexSize, key);
+	addLayer(depthLevel, vertexCapacity, m_defaultMergedDrawCapacity, key);
 }
 
 void LayerManager::addLayer(unsigned depthLevel,
-							  unsigned vertexLayerSize,
-							  unsigned differentVertexSize,
-							  std::string const& key)
+							size_t vertexCapacity,
+							size_t mergedDrawCapacity,
+							std::string const& key)
 {
 	m_needToBeSorted = true;
 
 	m_layerFactory.AddLayer(depthLevel,
-	                        vertexLayerSize,
-	                        differentVertexSize,
+							vertexCapacity,
+							mergedDrawCapacity,
 	                        key);
 }
 
 void LayerManager::addVertices(DisplayPackage & displayPackage,
-                                 VertexArray const& vertexArray)
+							   VertexArray const& vertexArray)
 {
     unsigned layerIndex;
 
     if(displayPackage.displayIdIsUpToDate())
     {
-        layerIndex = displayPackage.getDisplayLayerID().getValue();
+        layerIndex = displayPackage.getLayerID().getValue();
     }
     else
     {
+		// we refresh the cache
         layerIndex = m_layerFactory.getIndex(displayPackage.getLayerKey());
-        displayPackage.setDisplayLayerID(layerIndex);
+        displayPackage.setLayerID(layerIndex);
     }
 
     m_layerFactory[layerIndex].addVertices(vertexArray, 
@@ -90,17 +91,17 @@ void LayerManager::addVertices(DisplayPackage & displayPackage,
     									   displayPackage.isSeparateDraw());
 }
 
-void LayerManager::setDefaultVertexLayerSize(unsigned vertexLayerSize)
+void LayerManager::setDefaultVertexCapacity(size_t vertexCapacity)
 {
-	m_defaultVertexLayerSize = vertexLayerSize;
+	m_defaultVertexCapacity = vertexCapacity;
 }
 
-void LayerManager::setDefaultDifferentVertexSize(unsigned differentVertexSize)
+void LayerManager::setDefaultMergedDrawCapacity(size_t mergedDrawCapacity)
 {
-	m_defaultDifferentVertexSize = differentVertexSize;
+	m_defaultMergedDrawCapacity = mergedDrawCapacity;
 }
 
-unsigned LayerManager::size() const
+size_t LayerManager::size() const
 {
     return m_layerFactory.size();
 }

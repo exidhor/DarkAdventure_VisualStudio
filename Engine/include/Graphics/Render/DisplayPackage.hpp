@@ -8,7 +8,6 @@
 #include "Graphics/Layer/LayerKey.hpp"
 #include "Graphics/Layer/LayerID.hpp"
 #include "Graphics/Texture/TextureID.hpp"
-#include "Graphics/Layer/Layer.hpp"
 
 namespace dae
 {
@@ -25,9 +24,15 @@ namespace dae
 
 	        /**
              * \brief	Construct the DisplayPackage with default value.
+             * \warning No texture is set
+             * \warning No layer is set
+             * \warning Primitive Point is set by default
              */
             DisplayPackage();
 
+	        /**
+             * \brief	void
+             */
             virtual ~DisplayPackage();
 
 	        /**
@@ -38,16 +43,15 @@ namespace dae
 
 	        /**
 			 * \brief	Set the Texture 
-			 * \param	id: the TextureID
+			 * \param	id : the TextureID
 			 */
 			void setTexture(TextureID id);
 
-            /*!
-             * \brief   Set the last DisplayLayerID value, to
-             *          use it again if no parameter changed.
-             * \param   displayLayerID : the DisplayLayerID value
-             */
-            void setDisplayLayerID(LayerID displayLayerID);
+			/*!
+			* \brief   Set the last LayerID value
+			* \param   id : the LayerID value
+			*/
+			void setLayerID(LayerID id);
 
 	        /**
 			 * \brief	Set the Primitive for the render
@@ -56,19 +60,20 @@ namespace dae
 			void setPrimitive(sf::PrimitiveType primitiveType);
 
 	        /**
-			 * \brief	Set the parameter which determine if it can be merge
-			 *			which the other draw, if it's possible
-			 * \param	isSeparateDraw : True if we want NOT merge, False otherwise
+			 * \brief	Set the parameter which determine if this draw has to be 
+			 *			alone ie not trying to merge it
+			 * \param	isSeparateDraw : True if we DON'T want merge, False otherwise
 			 */
 			void setSeparateDraw(bool isSeparateDraw);
-
-            /*!
-             * \brief   Get the last DisplayLayerID value.
+        	
+			//todo : remove this and try to encapsulate the cache process 
+        	/*!
+             * \brief   Get the last LayerID value.
              *          It may be obsolete if the display parameter
              *          changeds since the last draw.
              * \return  the reference to the Layer value
             */
-            LayerID getDisplayLayerID() const;
+			LayerID getLayerID() const;
 
 	        /**
 			 * \brief	Return the TextureID
@@ -101,17 +106,16 @@ namespace dae
 			 */
 			bool isSeparateDraw() const;
 
-        protected :
-
         private :
+
 			TextureID m_textureID;
-			sf::PrimitiveType m_displayPrimitive;
+			sf::PrimitiveType m_primitive;
 			bool m_separateDraw;
 
 			LayerKey m_layerKey;
 
             bool m_lastID_upToDate;
-            LayerID m_lastDisplayLayerID;
+            LayerID m_lastLayerID;
         };
 
     }

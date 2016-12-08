@@ -59,22 +59,22 @@ void GraphicsEngine::clear()
     m_layerManager.prepare();
 }
 
-void GraphicsEngine::draw(RenderComponent & renderComponent)
+void GraphicsEngine::draw(GraphicsComponent & renderComponent)
 {
     m_layerManager.addVertices(renderComponent.m_displayPackage, renderComponent.m_vertexArray);
 }
 
 void GraphicsEngine::display()
 {
-    m_drawer.draw(m_layerManager, m_textureManager, *m_window);
+    Drawer::draw(m_layerManager, m_textureManager, *m_window);
     m_window->display();
 }
 
 void GraphicsEngine::setDefaultLayerSizes(unsigned vertexSize,
 										  unsigned differentPrimitiveSize)
 {
-	m_layerManager.setDefaultVertexLayerSize(vertexSize);
-	m_layerManager.setDefaultDifferentVertexSize(differentPrimitiveSize);
+	m_layerManager.setDefaultVertexCapacity(vertexSize);
+	m_layerManager.setDefaultMergedDrawCapacity(differentPrimitiveSize);
 }
 
 void GraphicsEngine::setWindowPtr(sf::RenderWindow * ptr_window)

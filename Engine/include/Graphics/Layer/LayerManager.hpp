@@ -12,13 +12,11 @@
 namespace dae
 {
     namespace graphics
-    {
-
-		// todo : refactor the doc
-        
+    {        
         /*!
          * \class   LayerManager
-         * \brief   // todo
+         * \brief   It keeps stored the different layers and allowed
+         *			them to be fill with vertices and then display.
          */
         class ENGINE_API LayerManager
         {
@@ -28,63 +26,66 @@ namespace dae
         public :
             /*!
              * \brief   Construct the DisplayManager with default values.
-             * \warning The defaut layer size is set to 0
+             * \warning The defaut layer capacity is set to 0 (no reserve of memory)
              */
             LayerManager();
 
             /*!
              * \brief   Construct the DisplayManager.
-             * \param   numberOfLayer : the size we reserve in the array
-             * \param   defaultVertexLayerSize : the default size of the layer
-             *          it means that each layer will reserve this size
-             *          when they are constructed
-             * \param	defaultDifferentVertexSize : the default number of 
-             *			different draw we will reserved.
+             * \param   layerCapacity : the capacity we reserve in the layer array
+             * \param   defaultVertexCapacity : the default capacity for the vertex array
+             *			in the layer. it means that each layer will reserve this capacity 
+             *			when no capacity is specified (starting value is 0)
+             * \param	defaultMergedDrawCapacity : the default capacity for the merged draw array
+             *			in the layer. it means that each layer will reserve this capacity 
+             *			when no capacity is specified (starting value is 0)
              */
-            LayerManager(unsigned numberOfLayer, 
-						   unsigned defaultVertexLayerSize,
-						   unsigned defaultDifferentVertexSize);
+            LayerManager(size_t layerCapacity, 
+						 size_t defaultVertexCapacity,
+						 size_t defaultMergedDrawCapacity);
 
+	        /**
+             * \brief	void
+             */
             virtual ~LayerManager();
 
             /*!
-             * \brief   Allocate or reallocate the array with the size
-             * \param   size : the number of layer it will allocate
+             * \brief   Allocate or reallocate the layer array with the size.
+             *			It can't reduce the capacity but extend it. It doesn't affect
+             *			the data in the layer array.
+             * \param   capacity : the number of layer it will allocate
              */
-            void reserve(unsigned size);
+            void reserve(size_t capacity);
 
             /*!
-             * \brief   Prepare the layer for the next display of the
-             *          frame.
+             * \brief   Prepare the layers to be able to draw the next frame
              * \warning This has to be call before any "draw"
-             * \warning This may be slow if layers are not sorted
+             * \warning This may be slow if new layers have just been added.
              */
             void prepare();
 
             /*!
              * \brief   Construct a layer in the array, reserving the
-             *          default size (set in the DisplayManager).
+             *          default capacity.
              * \param   depthLevel : the level of depth (to determine
              *          the order of drawing)
 			 * \param	key : the key which identify the layer
-             * \warning This combinaison of arguments has to be
-             *          new in this manager to fit well in the map.
+             * \warning The key and the depth level hase to be unique
              */
             void addLayer(unsigned depthLevel,
                           std::string const& key);
 
             /*!
              * \brief   Construct a layer in the array, reserving a 
-             *			specific size for the Layer.
+             *			specific capacity for the Layer.
              * \param   depthLevel : the level of depth (to determine
              *          the drawing order)
-			 * \param   vertexLayerSize : the size reserved for the Layer.
+			 * \param   vertexCapacity : the capacity reserved for the vertex array
 			 * \param	key : the key which identify the layer
-             * \warning This combinaison of arguments has to be
-             *          new in this manager to fit well in the map.
+			 * \warning The key and the depth level hase to be unique
              */
             void addLayer(unsigned depthLevel,
-                          unsigned vertexLayerSize,
+                          size_t vertexCapacity,
 						  std::string const& key);
 			
 			/*!
@@ -93,16 +94,15 @@ namespace dae
              *			different draw.
 			* \param	depthLevel : the level of depth (to determine
 			*			the drawing order).
-			* \param	vertexLayerSize : the size reserved for the Layer.
-			* \param	differentVertexSize : the number of different 
-             *			draw we will reserved.
+			* \param	vertexCapacity : the capacity reserved for the vertex array
+			* \param	mergedDrawCapacity : the capacity reservedfor the merged
+			*			draw array in the layer.
 			* \param	key : the key which identify the layer
-			* \warning	This combinaison of arguments has to be
-			*			new in this manager to fit well in the map.
+			* \warning The key and the depth level hase to be unique
 			*/
 			void addLayer(unsigned depthLevel,
-						  unsigned vertexLayerSize,
-						  unsigned differentVertexSize,
+						  size_t vertexCapacity,
+						  size_t mergedDrawCapacity,
 						  std::string const& key);
 
             /*!
@@ -116,38 +116,37 @@ namespace dae
                              VertexArray const& vertexArray);
 
             /*!
-             * \brief   Set the default size for the layer.
-             *          This size will be allocate by default
-             *          when new layer will be constructed
-             * \param   vertexLayerSize : the new default size for layer
+             * \brief   Set the default capacity for the vertex array in the layers.
+			 * \param   vertexCapacity : the default capacity for the vertex array
+			 *			in the layer. it means that each layer will reserve this capacity
+			 *			when no capacity is specified (starting value is 0)
              */
-            void setDefaultVertexLayerSize(unsigned vertexLayerSize);
+            void setDefaultVertexCapacity(size_t vertexCapacity);
 
 			/*!
-			* \brief   Set the default number of different Render arg.
-			* \param   differentVertexSize : the new default differenteVertexSize
+			* \brief	Set the default capacity for the merged draw array in the layers
+			* \param	mergedDrawCapacity : the default capacity for the merged draw array
+			*			in the layer. it means that each layer will reserve this capacity
+			*			when no capacity is specified (starting value is 0)
 			*/
-			void setDefaultDifferentVertexSize(unsigned differentVertexSize);
+			void setDefaultMergedDrawCapacity(size_t mergedDrawCapacity);
 
             /*!
-             * \return  Returns the number of layer in the DisplayManager
+             * \return  Returns the number of layers
              */
-            unsigned size() const;
-
-        protected :
+            size_t size() const;
         
         private :
             /*!
-             * \brief   Remove all the vertices in the layers
+             * \brief   Remove all the vertices from the layers
              */
             void clearLayers();
 
-			//LayerArray	m_layerArray;
 			LayerFactory m_layerFactory;
 
-            unsigned	m_defaultVertexLayerSize;
-			unsigned	m_defaultDifferentVertexSize;
-			bool		m_needToBeSorted;
+			size_t	m_defaultVertexCapacity;
+			size_t	m_defaultMergedDrawCapacity;
+			bool	m_needToBeSorted;
         };
         
     }

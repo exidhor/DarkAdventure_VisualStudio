@@ -15,40 +15,25 @@ namespace dae
         
         /*!
          * \class   Drawer
-         * \brief   In charge of the draw of each elements during
-         *          the frame.
+         * \brief   Static class in charge of the draw of each elements 
+         *			from the layers
          */
-        class ENGINE_API Drawer
-        {
-        public :
-            /*!
-             * \brief   nothing
-             */
-            Drawer();
-            
-            /*!
-             * \brief   nothing
-             */
-            virtual ~Drawer();
-
-            /*!
-             * \brief   Draw all the stuff in the DisplayManager.
-             * \param   displayManager : the DisplayManager where
-             *          all the datas are.
-             * \param   textureManager : the TextureManager where
-             *          all the textures are.
-             * \param   renderTarget : where all the stuff will be
-             *          drawn.
-             */
-            void draw(LayerManager & displayManager,
-                      TextureManager & textureManager,
-                      sf::RenderTarget & renderTarget);
-            
-        protected :
-        
-        private :
-        
-        };
+	    class ENGINE_API Drawer
+	    {
+		public :
+			/*!
+			* \brief   Draw all the stuff in the LayerManager.
+			* \param   layerManager : the LayerManager where
+			*          all the datas are.
+			* \param   textureManager : the TextureManager where
+			*          all the textures are.
+			* \param   renderTarget : where all the stuff will be
+			*          drawn.
+			*/
+			static void draw(LayerManager & layerManager,
+							 TextureManager & textureManager,
+							 sf::RenderTarget & renderTarget);
+		};
         
     }
 }

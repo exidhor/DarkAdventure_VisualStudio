@@ -14,7 +14,10 @@ void LayerFactory::AddLayer(unsigned depthLevel,
 			         mergedDrawCapacity)));
 }
 
-unsigned LayerFactory::capacity() const
+size_t LayerFactory::capacity() const
 {
-	return utils::MapTableStorable<Layer, LayerKey, Compare_layer, utils::Hash_string_key>::capacity();
+	return utils::MapTableStorable<Layer, 
+		                           LayerKey, 
+		                           Compare_layer, 
+		                           utils::Hash_string_key>::capacity();
 }

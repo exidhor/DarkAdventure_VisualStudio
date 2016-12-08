@@ -18,17 +18,17 @@ namespace dae
 		 */
 		struct Compare_layer
 		{
-			// it needs to be able to access tot the depthLevel value of the
+			// it needs to be able to access to the depthLevel value of the
 			// Layer to compare them
-			const std::vector<Layer> & v_layer;
+			const std::vector<Layer> & layers;
 
 			
 			/**
 			 * \brief	Create the structure to compare Layers.
-			 * \param	v_layer : all the Layers which will be compared 
+			 * \param	layers : all the Layers which will be compared 
 			 */
-			Compare_layer(const std::vector<Layer> & v_layer)
-				: v_layer(v_layer)
+			Compare_layer(const std::vector<Layer> & layers)
+				: layers(layers)
 			{
 				// nothing
 			}
@@ -43,7 +43,7 @@ namespace dae
 			 */
 			bool compare(int a, int b) const
 			{
-				return v_layer[a].getDepthLevel() <= v_layer[b].getDepthLevel();
+				return layers[a].getDepthLevel() <= layers[b].getDepthLevel();
 			}
 		};
 		
@@ -76,10 +76,10 @@ namespace dae
 			              std::string const& key);
 
 			/**
-			 * \brief	Return a unsigned capacity
-			 * \return  return a unsigned capacity
+			 * \brief	Return the capacity of the factory
+			 * \return  the capacity of the factory
 			 */
-			unsigned capacity() const;
+			size_t capacity() const;
 
 		private :
 

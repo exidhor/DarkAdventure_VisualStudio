@@ -6,7 +6,7 @@ DisplayPackage::DisplayPackage()
     : m_textureID(0),
 	  m_layerKey(""),
 	  m_separateDraw(false),
-      m_lastDisplayLayerID(0),
+      m_lastLayerID(0),
       m_lastID_upToDate(false)
 {
     // nothing
@@ -23,6 +23,14 @@ void DisplayPackage::setTexture(TextureID id)
 	m_textureID = id;
 }
 
+
+void DisplayPackage::setLayerID(LayerID id)
+{
+    m_lastLayerID = id;
+    m_lastID_upToDate = true;
+}
+
+
 void DisplayPackage::setLayer(LayerKey const& key)
 {
 	m_lastID_upToDate = false;
@@ -32,7 +40,7 @@ void DisplayPackage::setLayer(LayerKey const& key)
 void DisplayPackage::setPrimitive(sf::PrimitiveType primitiveType)
 {
 	m_lastID_upToDate = false;
-	m_displayPrimitive = primitiveType;
+	m_primitive = primitiveType;
 }
 
 void DisplayPackage::setSeparateDraw(bool isSeparateDraw)
@@ -40,15 +48,9 @@ void DisplayPackage::setSeparateDraw(bool isSeparateDraw)
 	m_separateDraw = isSeparateDraw;
 }
 
-void DisplayPackage::setDisplayLayerID(LayerID displayLayerID)
+LayerID DisplayPackage::getLayerID() const
 {
-    m_lastDisplayLayerID = displayLayerID;
-    m_lastID_upToDate = true;
-}
-
-LayerID DisplayPackage::getDisplayLayerID() const
-{
-    return m_lastDisplayLayerID;
+    return m_lastLayerID;
 }
 
 TextureID DisplayPackage::getTextureID() const
@@ -63,7 +65,7 @@ LayerKey const& DisplayPackage::getLayerKey() const
 
 sf::PrimitiveType DisplayPackage::getPrimitive() const
 {
-	return m_displayPrimitive;
+	return m_primitive;
 }
 
 bool DisplayPackage::displayIdIsUpToDate() const

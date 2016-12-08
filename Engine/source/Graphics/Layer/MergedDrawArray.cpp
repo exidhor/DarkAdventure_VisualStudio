@@ -8,17 +8,17 @@ MergedDrawArray::MergedDrawArray()
 	// nothing
 }
 
-MergedDrawArray::MergedDrawArray(unsigned reservedSize)
+MergedDrawArray::MergedDrawArray(size_t capacity)
 	: m_lastIsSperateDraw(false)
 {
-	reserve(reservedSize);
+	reserve(capacity);
 }
 
-void MergedDrawArray::reserve(unsigned size)
+void MergedDrawArray::reserve(size_t capacity)
 {
-	m_textureID.reserve(size);
-	m_sizes.reserve(size);
-	m_primitives.reserve(size);
+	m_textureID.reserve(capacity);
+	m_sizes.reserve(capacity);
+	m_primitives.reserve(capacity);
 }
 
 void MergedDrawArray::clear()
@@ -31,24 +31,26 @@ void MergedDrawArray::clear()
 }
 
 void MergedDrawArray::add(TextureID const& textureID, 
-							  sf::PrimitiveType primitive, 
-							  unsigned size,
-							  bool separateDraw)
+						  sf::PrimitiveType primitive,
+						  size_t numberOfVertices,
+						  bool separateDraw)
 {
-	if(this->size() != 0
+	if(size() != 0
 	    && !separateDraw
 	    && !m_lastIsSperateDraw
 		&& getLastTextureID() == textureID 
 		&& getLastPrimitive() == primitive)
 	{
-		unsigned last = this->size()-1;
-		m_sizes[last] += size;
+		// we can merge it
+		unsigned last = size()-1;
+		m_sizes[last] += numberOfVertices;
 	}
 	else
 	{
+		// we create a new "draw"
 		m_textureID.push_back(textureID);
 		m_primitives.push_back(primitive);
-		m_sizes.push_back(size);
+		m_sizes.push_back(numberOfVertices);
 
 		m_lastIsSperateDraw = separateDraw;
 	}
@@ -64,12 +66,12 @@ sf::PrimitiveType MergedDrawArray::getPrimitive(unsigned index) const
 	return m_primitives[index];
 }
 
-unsigned MergedDrawArray::getSize(unsigned index) const
+size_t MergedDrawArray::getSize(unsigned index) const
 {
 	return m_sizes[index];
 }
 
-unsigned MergedDrawArray::size() const
+size_t MergedDrawArray::size() const
 {
 	return m_textureID.size();
 }

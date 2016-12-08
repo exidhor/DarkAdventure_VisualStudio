@@ -29,25 +29,10 @@ namespace dae
 
         public :
 
-		    /**
-			 * \brief	Construct a default Layer.
-			 *			The depth level default value is 0.
-			 */
-			Layer();
-
-
-		    /**
-			 * \brief	Construct a Layer with a depthLevel value
-			 * \param	depthLevel : the depthLevel value
-			 */
-			Layer(unsigned depthLevel);
-
-
 			/*!
 			* \brief	Construct the layer and reserve memory.
-			* \param	depthLevel : represents the time
-			*			when this layer will be drawn compared to the
-			*			other layer.
+			* \param	depthLevel : to set the draw order, the smallest will
+			*			be drawn in first 
 			* \param	vertexCapacity : the number of elements reserved
 			*			in the layer
 			* \param	mergedDrawCapacity : the size reserved for
@@ -62,9 +47,9 @@ namespace dae
 
 			/*!
 			* \brief   Create a correct copy of the layer, only for save
-			*          usage.
+			*          usage, or memory deplacement (like in std::vector)
 			* \param   layer : the layer to copy
-			* \warning IDs are copied, then it safeless to use in  the LayerManager
+			* \warning IDs are copied, then it safeless to use in the LayerManager
 			*/
 			Layer(Layer const& layer);
 
@@ -114,17 +99,16 @@ namespace dae
 			void draw(sf::RenderTarget & renderTarget,
 					  TextureManager const& textureManager,
 					  sf::RenderStates renderState = sf::RenderStates::Default);
-            
-        protected :
-			// nothing
 
         private :
+			// we need to store it to be able to retreive it
+        	// and display it in the DEBUG_View
 			LayerKey m_key;
 
             unsigned m_depthLevel;
 
             VertexArray m_vertexArray;
-			MergedDrawArray m_separateVertexArray;
+			MergedDrawArray m_mergedDrawArray;
         };
         
     }

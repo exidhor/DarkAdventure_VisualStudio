@@ -2,20 +2,6 @@
 
 using namespace dae::graphics;
 
-Layer::Layer()
-	: Layer(0)
-{
-	// nothing
-}
-
-
-Layer::Layer(unsigned depthLevel)
-	: m_key(""),
-	m_depthLevel(depthLevel)
-{
-	// nothing
-}
-
 
 Layer::Layer(std::string const& key, 
 			 unsigned depthLevel,
@@ -24,7 +10,7 @@ Layer::Layer(std::string const& key,
     : m_key(key),
 	  m_depthLevel(depthLevel),
       m_vertexArray(vertexNumberMax),
-	  m_separateVertexArray(mergedDrawCapacity)
+	  m_mergedDrawArray(mergedDrawCapacity)
 {
     // nothing
 }
@@ -34,7 +20,7 @@ Layer::Layer(Layer const& displayLayer)
 	: m_key(displayLayer.m_key),
 	  m_depthLevel(displayLayer.m_depthLevel),
       m_vertexArray(displayLayer.m_vertexArray),
-	  m_separateVertexArray(displayLayer.m_separateVertexArray)
+	  m_mergedDrawArray(displayLayer.m_mergedDrawArray)
 {
 	// nothing
 }
@@ -53,7 +39,7 @@ void Layer::addVertices(VertexArray const& vertexArray,
 {
     m_vertexArray.add(vertexArray);
 
-	m_separateVertexArray.add(textureID, 
+	m_mergedDrawArray.add(textureID, 
 							  primitve, 
 							  vertexArray.getSize(), 
 							  separateDraw);
@@ -62,7 +48,7 @@ void Layer::addVertices(VertexArray const& vertexArray,
 void Layer::clear()
 {
     m_vertexArray.clear();
-	m_separateVertexArray.clear();
+	m_mergedDrawArray.clear();
 }
 
 unsigned Layer::getDepthLevel() const
@@ -76,15 +62,15 @@ void Layer::draw(sf::RenderTarget & renderTarget,
 {
 	unsigned vertexIndex = 0;
 
-	for(unsigned i = 0; i < m_separateVertexArray.size(); i++)
+	for(unsigned i = 0; i < m_mergedDrawArray.size(); i++)
 	{
-		renderState.texture = textureManager.getTexture(m_separateVertexArray.getTextureID(i));
+		renderState.texture = textureManager.getTexture(m_mergedDrawArray.getTextureID(i));
 
 		renderTarget.draw(&m_vertexArray[vertexIndex], 
-						  m_separateVertexArray.getSize(i),
-						  m_separateVertexArray.getPrimitive(i),
+						  m_mergedDrawArray.getSize(i),
+						  m_mergedDrawArray.getPrimitive(i),
 						  renderState);
 
-		vertexIndex += m_separateVertexArray.getSize(i);
+		vertexIndex += m_mergedDrawArray.getSize(i);
 	}
 }

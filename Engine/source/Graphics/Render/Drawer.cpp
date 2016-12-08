@@ -2,27 +2,17 @@
 
 using namespace dae::graphics;
 
-Drawer::Drawer()
-{
-    // nothing
-}
-
-Drawer::~Drawer()
-{
-    // nothing
-}
-
-void Drawer::draw(LayerManager & displayManager,
+void Drawer::draw(LayerManager & layerManager,
                   TextureManager & textureManager,
                   sf::RenderTarget & renderTarget)
 {
-	dae::utils::Iterator<unsigned> iterator = displayManager.m_layerFactory.getIterator();
+	dae::utils::Iterator<unsigned> iterator = layerManager.m_layerFactory.getIterator();
 
 	while(!iterator.isStuck())
 	{
 		unsigned index = iterator.current();
 
-		displayManager.m_layerFactory[index].draw(renderTarget, textureManager);
+		layerManager.m_layerFactory[index].draw(renderTarget, textureManager);
 
 		iterator.next();
 	}

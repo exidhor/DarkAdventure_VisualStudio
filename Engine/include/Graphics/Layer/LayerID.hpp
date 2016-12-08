@@ -13,7 +13,8 @@ namespace dae
         /*!
          * \class	LayerID
          * \brief	Small class which represent the layer id.
-		 *			It used to ensure that we use right values.
+		 *			It used to ensure that specific ids are used
+		 *			in the right place
          */
         class ENGINE_API LayerID : public utils::UintID
         {

@@ -21,27 +21,43 @@ namespace dae
          * \brief	
          *
          */
-        class ENGINE_API RenderComponent
+        class ENGINE_API GraphicsComponent
         {
         public :
 
             friend class GraphicsEngine;
 
-            /*!
-             * \brief
+		    // todo : see if we can use default constructor     	
+        	// RenderComponent(sf::PrimitiveType primitiveType = sf::PrimitiveType::Quads);
+            
+        	/*!
+             * \brief	todo
              */
-            RenderComponent(std::vector<utils::Vec2f> const& vertexPosition, 
+            GraphicsComponent(std::vector<utils::Vec2f> const& vertexPosition, 
 							sf::PrimitiveType primitiveType);
             
             /*!
-             * \brief
+             * \brief	void
              */
-            virtual ~RenderComponent();
+            virtual ~GraphicsComponent();
 
+	        /**
+			 * \brief	Set the tile to the component.
+			 * \param	tile : the tile to set
+			 */
 			void setTile(animations::Tile const tile);
 
+	        /**
+             * \brief	Set the color to the component. The color
+             *			can be added to the texture to produce a new result
+             * \param	color : the color to set
+             */
             void setColor(sf::Color const& color);
 
+	        /**
+             * \brief	Set the layer. The Layer will determine the order of the draw
+             * \param	key : the LayerKey
+             */
             void setLayer(std::string const& key);
 
 			/**
@@ -51,20 +67,37 @@ namespace dae
 			*/
 			void setSeparateDraw(bool isSeparateDraw);
 
+	        /**
+			 * \brief 
+			 * \param displayPackage : 
+			 */
 			void setDisplayPackage(DisplayPackage const& displayPackage);
 
+	        /**
+			 * \brief 
+			 * \param vertexArray : 
+			 */
 			void setVertexArray(VertexArray const& vertexArray);
 
+	        /**
+             * \brief 
+             * \return 
+             */
             sf::Color const& getColor() const;
 
+	        /**
+			 * \brief 
+			 * \return 
+			 */
 			LayerKey const& getLayerKey() const;
 
+	        /**
+             * \brief 
+             * \param graphicsEngine : 
+             * \param renderStates : 
+             */
             void draw(GraphicsEngine & graphicsEngine, 
 					  sf::RenderStates renderStates = sf::RenderStates());
-
-
-            
-        protected :
 
         private :
             DisplayPackage m_displayPackage;

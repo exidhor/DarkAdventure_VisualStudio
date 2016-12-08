@@ -11,34 +11,36 @@ namespace dae
 	{
 
 		/**
-		 * \class	SeparateVertexArray
+		 * \class	MergedDrawArray
 		 * \brief	It stores the display configuration for some renderComponent.
-		 *			It try to do the minimal draw by merging the VertexArray when 
-		 *			it's possible.
+		 *			It try to do the minimal number of draw by merging the VertexArray
+		 *			when it's possible.
 		 */
 		class ENGINE_API MergedDrawArray
 		{
 		public :
 
 			/**
-			 * \brief	Construct a void Separate Vertex Array
+			 * \brief	Construct a void Merged Draw Array
 			 */
 			MergedDrawArray();
 
 			/**
-			 * \brief	Construct an Separate Vertex Array and allocate some memories
-			 * \param	reservedSize : the memory to allocate
+			 * \brief	Construct an Merged Draw Array and allocate some memory
+			 * \param	capacity : the memory to allocate
 			 */
-			MergedDrawArray(unsigned reservedSize);
+			MergedDrawArray(size_t capacity);
 
 			/**
 			 * \brief	Allocate or reallocate the memory
-			 * \param	size : the memory to allocate
+			 *			It can't reduce the capacity but extend it. It doesn't affect
+             *			the data in array.
+			 * \param	capacity : the memory to allocate
 			 */
-			void reserve(unsigned size);
+			void reserve(size_t capacity);
 
 			/**
-			 * \brief	Clear all the intern data
+			 * \brief	Clear the intern data
 			 */
 			void clear();
 
@@ -47,40 +49,44 @@ namespace dae
 			 *			data. It merges if the TextureID AND the primitive are equals.
 			 * \param	textureID : the ID of the texture
 			 * \param	primitive : the primitive of the draw 
-			 * \param	size : the number of vertex we want to draw with this configuration
-			 * \param	separateDraw : if we want to try to merge this 
+			 * \param	numberOfVertices : the number of vertices associated with this
+			 *			configuration
+			 * \param	separateDraw : if we don't want to try to merge this 
 			 */
 			void add(TextureID const& textureID, 
 					 sf::PrimitiveType primitive, 
-					 unsigned size,
+					 size_t numberOfVertices,
 					 bool separateDraw = false);
 
 			/**
-			 * \brief	Return the TextureID associated to the index specified
-			 * \param	index : the index specified 
+			 * \brief	Return the TextureID associated to the index specified.
+			 * \param	index : the index specified correspond to a "draw" i.e. a specific
+			 *			configuration for drawing a specific number of vertices.
 			 * \return	the TextureID
 			 */
 			TextureID const& getTextureID(unsigned index) const;
 
 			/**
 			 * \brief	Return the Primitive associated to the index specified
-			 * \param	index : the index specified 
+			 * \param	index : the index specified correspond to a "draw" i.e. a specific
+			 *			configuration for drawing a specific number of vertices.
 			 * \return	the Primitive 
 			 */
 			sf::PrimitiveType getPrimitive(unsigned index) const;
 
 			/**
-			 * \brief	Return the size associated to the index specified
-			 * \param	index : the index specified  
-			 * \return	the size
+			 * \brief	Return the number of vertices associated to the index specified
+			 * \param	index : the index specified correspond to a "draw" i.e. a specific
+			 *			configuration for drawing a specific number of vertices.
+			 * \return	the number of vertices
 			 */
-			unsigned getSize(unsigned index) const;
+			size_t getSize(unsigned index) const;
 
 			/**
 			 * \brief	Return the number of draw 
 			 * \return the number of draw
 			 */
-			unsigned size() const;
+			size_t size() const;
 
 		private :
 			TextureID const& getLastTextureID() const;
@@ -89,7 +95,7 @@ namespace dae
 			bool m_lastIsSperateDraw;
 			std::vector <TextureID> m_textureID;
 			std::vector <sf::PrimitiveType> m_primitives;
-			std::vector <unsigned> m_sizes;
+			std::vector <size_t> m_sizes;
 		};
 	}
 }

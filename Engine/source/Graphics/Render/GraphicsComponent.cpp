@@ -5,6 +5,7 @@ using namespace dae::graphics;
 using namespace dae::utils;
 using namespace dae;
 
+
 RenderComponent::RenderComponent(std::vector<Vec2f> const& vertexPosition, 
 								 sf::PrimitiveType primitiveType)
     : m_vertexArray(vertexPosition)
