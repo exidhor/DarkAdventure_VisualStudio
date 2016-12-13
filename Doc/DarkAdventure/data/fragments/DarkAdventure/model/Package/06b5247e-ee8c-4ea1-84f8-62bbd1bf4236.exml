@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Animations" version="4">
+  <OBJECT>
+    <ID name="Animations" mc="Standard.Package" uid="06b5247e-ee8c-4ea1-84f8-62bbd1bf4236"/>
+    <PID name="darkadventure" mc="Standard.Package" uid="27e43cab-4ddc-45a1-a7b6-af0ae5346bca"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Animations]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="AnimationsEngine" mc="Standard.Class" uid="523f1a19-92d7-4ade-a52f-3685c6722982"/>
+        <COMPID name="AnimationComponent" mc="Standard.Class" uid="32c1c9f1-ec2c-415c-9409-93597a404828"/>
+        <COMPID name="AnimationPlayer" mc="Standard.Class" uid="2ceebd8a-5292-44ef-b429-34b6782e1050"/>
+        <COMPID name="AnimationMachine" mc="Standard.Class" uid="04f24b74-8f97-4208-98fc-fb68306ad805"/>
+        <COMPID name="TileManager" mc="Standard.Class" uid="ef1d6c2b-8ac0-4243-be82-dcb98c0bd1b6"/>
+        <COMPID name="Tile" mc="Standard.Class" uid="9da3664d-f3de-4052-add2-2711b235e45f"/>
+        <COMPID name="AnimationState" mc="Standard.Class" uid="76a2de99-4832-430a-bdd7-c47d1f49bc95"/>
+        <COMPID name="AnimationManager" mc="Standard.Class" uid="1921417b-b90a-42cc-abb3-fceebc1fe747"/>
+        <COMPID name="Animation" mc="Standard.Class" uid="c00688a4-eeec-4284-89f9-805a95bfd40b"/>
+        <COMPID name="Time" mc="Standard.Class" uid="4cb15a78-42d4-4309-915e-34bbb15c6002"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="overview diagram" mc="Standard.ClassDiagram" uid="ea129034-b7d0-4f3d-8444-661d696507f8"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="darkadventure" version="4">
+  <OBJECT>
+    <ID name="darkadventure" mc="Standard.Package" uid="27e43cab-4ddc-45a1-a7b6-af0ae5346bca"/>
+    <PID name="DarkAdventure" mc="Standard.Project" uid="83ca6e6e-dff6-4749-b241-3cdf071b6a17"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[darkadventure]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Graphics" mc="Standard.Package" uid="02fef89c-2450-4c6b-8411-cb947eb6fb0d"/>
+        <COMPID name="Animations" mc="Standard.Package" uid="06b5247e-ee8c-4ea1-84f8-62bbd1bf4236"/>
+        <COMPID name="Utils" mc="Standard.Package" uid="50c3263e-9c95-446f-9ed4-f9aa064af389"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

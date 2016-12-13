@@ -67,9 +67,10 @@ namespace dae
 			*/
 			void setSeparateDraw(bool isSeparateDraw);
 
+			// todo 
 	        /**
-			 * \brief 
-			 * \param displayPackage : 
+			 * \brief	
+			 * \param	displayPackage : 
 			 */
 			void setDisplayPackage(DisplayPackage const& displayPackage);
 

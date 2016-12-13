@@ -25,19 +25,19 @@
 #define NUMBER_COMPONENTS (NUMBER_TRIANGLE + NUMBER_RECTANGLE)
 
 // initialization of the RenderComponents
-void constructTriangles(std::vector<dae::graphics::RenderComponent> & components);
-void constructRectangles(std::vector<dae::graphics::RenderComponent> & components);
+void constructTriangles(std::vector<dae::graphics::GraphicsComponent> & components);
+void constructRectangles(std::vector<dae::graphics::GraphicsComponent> & components);
 
-void setColorToTriangles(std::vector<dae::graphics::RenderComponent> & components);
-void setColorToRectangles(std::vector<dae::graphics::RenderComponent> & components);
+void setColorToTriangles(std::vector<dae::graphics::GraphicsComponent> & components);
+void setColorToRectangles(std::vector<dae::graphics::GraphicsComponent> & components);
 
-void setLayersToComponents(std::vector<dae::graphics::RenderComponent> & components);
+void setLayersToComponents(std::vector<dae::graphics::GraphicsComponent> & components);
 
 // handle the input
 void handleUserInput(sf::Event const& event);
 
 // global variables
-std::vector<dae::graphics::RenderComponent> components;
+std::vector<dae::graphics::GraphicsComponent> components;
 dae::Engine engine;
 
 void main()
@@ -81,7 +81,7 @@ void main()
 	}
 }
 
-void constructTriangles(std::vector<dae::graphics::RenderComponent> & components)
+void constructTriangles(std::vector<dae::graphics::GraphicsComponent> & components)
 {
 	std::vector<dae::utils::Vec2f> vertexPosition;
 
@@ -89,7 +89,7 @@ void constructTriangles(std::vector<dae::graphics::RenderComponent> & components
 	vertexPosition.push_back(dae::utils::Vec2f(125, 81));
 	vertexPosition.push_back(dae::utils::Vec2f(175, 79));
 
-	components.push_back(dae::graphics::RenderComponent(vertexPosition, sf::Triangles));
+	components.push_back(dae::graphics::GraphicsComponent(vertexPosition, sf::Triangles));
 
 	vertexPosition.clear();
 
@@ -97,7 +97,7 @@ void constructTriangles(std::vector<dae::graphics::RenderComponent> & components
 	vertexPosition.push_back(dae::utils::Vec2f(178, 318));
 	vertexPosition.push_back(dae::utils::Vec2f(154, 455));
 
-	components.push_back(dae::graphics::RenderComponent(vertexPosition, sf::Triangles));
+	components.push_back(dae::graphics::GraphicsComponent(vertexPosition, sf::Triangles));
 
 	vertexPosition.clear();
 
@@ -105,7 +105,7 @@ void constructTriangles(std::vector<dae::graphics::RenderComponent> & components
 	vertexPosition.push_back(dae::utils::Vec2f(801, 94));
 	vertexPosition.push_back(dae::utils::Vec2f(661, 191));
 
-	components.push_back(dae::graphics::RenderComponent(vertexPosition, sf::Triangles));
+	components.push_back(dae::graphics::GraphicsComponent(vertexPosition, sf::Triangles));
 
 	vertexPosition.clear();
 
@@ -113,7 +113,7 @@ void constructTriangles(std::vector<dae::graphics::RenderComponent> & components
 	vertexPosition.push_back(dae::utils::Vec2f(863, 393));
 	vertexPosition.push_back(dae::utils::Vec2f(756, 393));
 
-	components.push_back(dae::graphics::RenderComponent(vertexPosition, sf::Triangles));
+	components.push_back(dae::graphics::GraphicsComponent(vertexPosition, sf::Triangles));
 
 	vertexPosition.clear();
 
@@ -121,10 +121,10 @@ void constructTriangles(std::vector<dae::graphics::RenderComponent> & components
 	vertexPosition.push_back(dae::utils::Vec2f(828, 692));
 	vertexPosition.push_back(dae::utils::Vec2f(524, 693));
 
-	components.push_back(dae::graphics::RenderComponent(vertexPosition, sf::Triangles));
+	components.push_back(dae::graphics::GraphicsComponent(vertexPosition, sf::Triangles));
 }
 
-void constructRectangles(std::vector<dae::graphics::RenderComponent> & components)
+void constructRectangles(std::vector<dae::graphics::GraphicsComponent> & components)
 {
 	std::vector<dae::utils::Vec2f> vertexPosition;
 
@@ -133,7 +133,7 @@ void constructRectangles(std::vector<dae::graphics::RenderComponent> & component
 	vertexPosition.push_back(dae::utils::Vec2f(262, 405));
 	vertexPosition.push_back(dae::utils::Vec2f(111, 405));
 
-	components.push_back(dae::graphics::RenderComponent(vertexPosition, sf::Quads));
+	components.push_back(dae::graphics::GraphicsComponent(vertexPosition, sf::Quads));
 
 	vertexPosition.clear();
 
@@ -142,7 +142,7 @@ void constructRectangles(std::vector<dae::graphics::RenderComponent> & component
 	vertexPosition.push_back(dae::utils::Vec2f(442, 277));
 	vertexPosition.push_back(dae::utils::Vec2f(189, 277));
 
-	components.push_back(dae::graphics::RenderComponent(vertexPosition, sf::Quads));
+	components.push_back(dae::graphics::GraphicsComponent(vertexPosition, sf::Quads));
 
 	vertexPosition.clear();
 
@@ -151,7 +151,7 @@ void constructRectangles(std::vector<dae::graphics::RenderComponent> & component
 	vertexPosition.push_back(dae::utils::Vec2f(648, 737));
 	vertexPosition.push_back(dae::utils::Vec2f(503, 737));
 
-	components.push_back(dae::graphics::RenderComponent(vertexPosition, sf::Quads));
+	components.push_back(dae::graphics::GraphicsComponent(vertexPosition, sf::Quads));
 
 	vertexPosition.clear();
 
@@ -160,7 +160,7 @@ void constructRectangles(std::vector<dae::graphics::RenderComponent> & component
 	vertexPosition.push_back(dae::utils::Vec2f(736, 275));
 	vertexPosition.push_back(dae::utils::Vec2f(612, 275));
 
-	components.push_back(dae::graphics::RenderComponent(vertexPosition, sf::Quads));
+	components.push_back(dae::graphics::GraphicsComponent(vertexPosition, sf::Quads));
 
 	vertexPosition.clear();
 
@@ -169,10 +169,10 @@ void constructRectangles(std::vector<dae::graphics::RenderComponent> & component
 	vertexPosition.push_back(dae::utils::Vec2f(847, 493));
 	vertexPosition.push_back(dae::utils::Vec2f(716, 493));
 
-	components.push_back(dae::graphics::RenderComponent(vertexPosition, sf::Quads));
+	components.push_back(dae::graphics::GraphicsComponent(vertexPosition, sf::Quads));
 }
 
-void setColorToTriangles(std::vector<dae::graphics::RenderComponent> & components)
+void setColorToTriangles(std::vector<dae::graphics::GraphicsComponent> & components)
 {
 	for (int i = 0; i < NUMBER_TRIANGLE; i++)
 	{
@@ -180,7 +180,7 @@ void setColorToTriangles(std::vector<dae::graphics::RenderComponent> & component
 	}
 }
 
-void setColorToRectangles(std::vector<dae::graphics::RenderComponent> & components)
+void setColorToRectangles(std::vector<dae::graphics::GraphicsComponent> & components)
 {
 	for (int i = NUMBER_TRIANGLE; i < NUMBER_TRIANGLE + NUMBER_RECTANGLE; i++)
 	{
@@ -188,7 +188,7 @@ void setColorToRectangles(std::vector<dae::graphics::RenderComponent> & componen
 	}
 }
 
-void setLayersToComponents(std::vector<dae::graphics::RenderComponent> & components)
+void setLayersToComponents(std::vector<dae::graphics::GraphicsComponent> & components)
 {
 	for (int i = 0; i < NUMBER_COMPONENTS; i++)
 	{

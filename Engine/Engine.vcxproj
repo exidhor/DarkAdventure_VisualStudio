@@ -178,7 +178,7 @@
     <ClInclude Include="include\Graphics\Layer\MergedDrawArray.hpp" />
     <ClInclude Include="include\Graphics\GraphicsEngine.hpp" />
     <ClInclude Include="include\Graphics\Render\DisplayPackage.hpp" />
-    <ClInclude Include="include\Graphics\Render\RenderComponent.hpp" />
+    <ClInclude Include="include\Graphics\Render\GraphicsComponent.hpp" />
     <ClInclude Include="include\Graphics\Render\VertexArray.hpp" />
     <ClInclude Include="include\Graphics\Texture\TextureID.hpp" />
     <ClInclude Include="include\Graphics\Texture\TextureKey.hpp" />
@@ -226,7 +226,7 @@
     <ClCompile Include="source\Graphics\Layer\MergedDrawArray.cpp" />
     <ClCompile Include="source\Graphics\GraphicsEngine.cpp" />
     <ClCompile Include="source\Graphics\Render\DisplayPackage.cpp" />
-    <ClCompile Include="source\Graphics\Render\RenderComponent.cpp" />
+    <ClCompile Include="source\Graphics\Render\GraphicsComponent.cpp" />
     <ClCompile Include="source\Graphics\Render\VertexArray.cpp" />
     <ClCompile Include="source\Graphics\Texture\TextureManager.cpp" />
     <ClCompile Include="mvs_file\stdafx.cpp">

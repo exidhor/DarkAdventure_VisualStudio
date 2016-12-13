@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="DarkAdventure" version="4">
+  <OBJECT>
+    <ID name="DarkAdventure" mc="Standard.AnalystProject" uid="750dc970-3f04-46c2-be87-c551e5351103"/>
+    <ATTRIBUTES>
+      <ATT name="Name"><![CDATA[DarkAdventure]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="PropertyRoot">
+        <COMPID name="DarkAdventure" mc="Standard.PropertyContainer" uid="d757dbd6-a522-4517-80f2-f7de10849f17"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

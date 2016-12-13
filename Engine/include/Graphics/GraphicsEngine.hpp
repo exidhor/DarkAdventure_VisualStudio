@@ -8,7 +8,7 @@
 #include "Graphics/Layer/LayerManager.hpp"
 #include "Graphics/Render/Drawer.hpp"
 #include "Graphics/Texture/TextureManager.hpp"
-#include "Graphics/Render/RenderComponent.hpp"
+#include "Graphics/Render/GraphicsComponent.hpp"
 
 namespace dae
 {
@@ -59,7 +59,7 @@ namespace dae
 
             void clear();
 
-            void draw(RenderComponent & renderComponent);
+            void draw(GraphicsComponent & renderComponent);
 
             void display();
 
@@ -76,7 +76,7 @@ namespace dae
             Drawer         m_drawer;
             TextureManager m_textureManager;
 
-			utils::IDTable<RenderComponent> m_renderComponents;
+			utils::IDTable<GraphicsComponent> m_renderComponents;
         };
     }
 }

@@ -31,7 +31,7 @@ void AnimationComponent::setAnimationMachine(AnimationMachine const& animationMa
 	ActualizePlayerWithState();
 }
 
-void AnimationComponent::update(graphics::RenderComponent & renderComponent, 
+void AnimationComponent::update(graphics::GraphicsComponent & renderComponent, 
 								unsigned time)
 {
 	bool needToUpdate = true;

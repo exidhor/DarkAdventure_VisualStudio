@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Graphics" version="4">
+  <OBJECT>
+    <ID name="Graphics" mc="Standard.Package" uid="02fef89c-2450-4c6b-8411-cb947eb6fb0d"/>
+    <PID name="darkadventure" mc="Standard.Package" uid="27e43cab-4ddc-45a1-a7b6-af0ae5346bca"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Graphics]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="GraphicsEngine" mc="Standard.Class" uid="633101a8-a9a5-4ce3-a85e-58e69382703d"/>
+        <COMPID name="GraphicsComponent" mc="Standard.Class" uid="3332dc6f-7f27-427a-ad15-3053eb4637e2"/>
+        <COMPID name="DispayPackage" mc="Standard.Class" uid="681ce942-0f23-4e35-8ae9-682d90770d1f"/>
+        <COMPID name="Layer" mc="Standard.Class" uid="140a9334-35a7-4785-ad44-5f9743e522a1"/>
+        <COMPID name="LayerManager" mc="Standard.Class" uid="bfe39c70-7159-4c20-916e-91f14f20476a"/>
+        <COMPID name="LayerFactory" mc="Standard.Class" uid="b05f2106-083e-451c-b152-10ffc0eb4bde"/>
+        <COMPID name="VertexArray" mc="Standard.Class" uid="60af7884-a15c-4a99-8d81-db4d70a385bd"/>
+        <COMPID name="Drawer" mc="Standard.Class" uid="56f3a795-7695-46e3-890d-9637fc9b1b18"/>
+        <COMPID name="TextureManager" mc="Standard.Class" uid="131a859b-7715-4cc3-822b-8272773b8a8e"/>
+        <COMPID name="MergedDrawArray" mc="Standard.Class" uid="cf6ef59c-28d3-45a1-ab3b-912dcdd85952"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="overview diagram" mc="Standard.ClassDiagram" uid="20f6507a-0b65-4918-b254-b2acd26bc2eb"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

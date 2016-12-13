@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="DarkAdventure" version="4">
+  <OBJECT>
+    <ID name="DarkAdventure" mc="Standard.Project" uid="83ca6e6e-dff6-4749-b241-3cdf071b6a17"/>
+    <ATTRIBUTES>
+      <ATT name="ProjectContext"></ATT>
+      <ATT name="ProjectDescr"></ATT>
+      <ATT name="Name"><![CDATA[DarkAdventure]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="DiagramRoot">
+        <COMPID name="DarkAdventure" mc="Standard.DiagramSet" uid="5bed0d7f-6225-4978-8a8f-58dc84a7c513"/>
+      </COMP>
+      <COMP relation="Model">
+        <COMPID name="darkadventure" mc="Standard.Package" uid="27e43cab-4ddc-45a1-a7b6-af0ae5346bca"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

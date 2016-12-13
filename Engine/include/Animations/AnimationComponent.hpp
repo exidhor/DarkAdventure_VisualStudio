@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Config.hpp"
-#include "Graphics/Render/RenderComponent.hpp"
+#include "Graphics/Render/GraphicsComponent.hpp"
 #include "Utils/Container/Iterator.hpp"
 #include "Animations/Animation/AnimationID.hpp"
 #include "Animations/Animation/AnimationManager.hpp"
@@ -26,7 +26,7 @@ namespace dae
 
 			void setAnimationMachine(AnimationMachine const& animationMachine);
 
-			void update(graphics::RenderComponent & renderComponent, unsigned time);
+			void update(graphics::GraphicsComponent & renderComponent, unsigned time);
 
 			AnimationID getCurrentAnimationID() const;
 

@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="DarkAdventure" version="4">
+  <OBJECT>
+    <ID name="DarkAdventure" mc="Standard.DiagramSet" uid="5bed0d7f-6225-4978-8a8f-58dc84a7c513"/>
+    <PID name="DarkAdventure" mc="Standard.Project" uid="83ca6e6e-dff6-4749-b241-3cdf071b6a17"/>
+    <ATTRIBUTES>
+      <ATT name="Name"><![CDATA[DarkAdventure]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>
