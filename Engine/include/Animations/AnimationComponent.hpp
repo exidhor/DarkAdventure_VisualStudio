@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Config.hpp"
-#include "Graphics/Render/GraphicsComponent.hpp"
+#include "Graphics/GraphicsComponent.hpp"
 #include "Utils/Container/Iterator.hpp"
 #include "Animations/Animation/AnimationID.hpp"
 #include "Animations/Animation/AnimationManager.hpp"

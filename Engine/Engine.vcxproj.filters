@@ -174,7 +174,16 @@
     <ClInclude Include="include\Utils\Container\MapTableStorable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Graphics\Render\GraphicsComponent.hpp">
+    <ClInclude Include="include\GameObject.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graphics\GraphicsComponent.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graphics\GraphicsComponentID.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Utils\Container\Factory.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -272,7 +281,7 @@
     <ClCompile Include="source\Utils\DEBUG_View\DEBUG_Line.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Graphics\Render\GraphicsComponent.cpp">
+    <ClCompile Include="source\Graphics\GraphicsComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -293,6 +302,9 @@
       <Filter>Header Files</Filter>
     </None>
     <None Include="include\Utils\Container\MapTableStorable.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="include\Utils\Container\Factory.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>

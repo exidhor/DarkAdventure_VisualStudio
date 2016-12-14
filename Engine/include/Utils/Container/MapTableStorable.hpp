@@ -54,7 +54,7 @@ namespace dae
 			void emplace_back(Key const& key, Args&& ... args);
 
 		private:
-			MapTable<Object, Key, Hash> m_iDContainer;
+			MapTable<Object, Key, Hash> m_iDTable;
 
 			// used to modify (like a sort) the structure data
 			// without modifying the ID.

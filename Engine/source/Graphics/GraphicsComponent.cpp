@@ -1,4 +1,4 @@
-#include "Graphics/Render/GraphicsComponent.hpp"
+#include "Graphics/GraphicsComponent.hpp"
 #include "Graphics/GraphicsEngine.hpp"  // forward declaration
 
 using namespace dae::graphics;

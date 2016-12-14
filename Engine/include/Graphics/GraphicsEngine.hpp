@@ -8,7 +8,8 @@
 #include "Graphics/Layer/LayerManager.hpp"
 #include "Graphics/Render/Drawer.hpp"
 #include "Graphics/Texture/TextureManager.hpp"
-#include "Graphics/Render/GraphicsComponent.hpp"
+#include "Graphics/GraphicsComponent.hpp"
+#include "Graphics/GraphicsComponentID.hpp"
 
 namespace dae
 {
@@ -34,8 +35,12 @@ namespace dae
              */
             virtual ~GraphicsEngine();
 
-            void init(unsigned numberOfLayer);
+            void init(unsigned numberOfLayers, 
+					  unsigned numberOfGraphicsComponents);
 
+			GraphicsComponentID getComponent();
+
+			bool freeComponent(GraphicsComponentID id);
 
 			void addLayer(unsigned depthLevel,
 						  std::string const& key);

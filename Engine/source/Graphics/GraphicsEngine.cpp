@@ -13,9 +13,11 @@ GraphicsEngine::~GraphicsEngine()
     // nothing
 }
 
-void GraphicsEngine::init(unsigned numberOfLayer)
+void GraphicsEngine::init(unsigned numberOfLayers, 
+						  unsigned numberOfGraphicsComponents)
 {
-    m_layerManager.reserve(numberOfLayer);
+    m_layerManager.reserve(numberOfLayers);
+	m_renderComponents.reserve(numberOfGraphicsComponents);
 }
 
 void GraphicsEngine::addLayer(unsigned depthLevel,
